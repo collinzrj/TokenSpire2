@@ -1,0 +1,15 @@
+; Godot Project, see https://godotengine.org
+config_version=5
+
+[application]
+
+config/name="DemoMod"
+config/features=PackedStringArray("4.5", "C#", "Mobile")
+
+[dotnet]
+
+project/assembly_name="DemoMod"
+
+[rendering]
+
+renderer/rendering_method="mobile"

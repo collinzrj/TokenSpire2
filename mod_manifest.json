@@ -1,0 +1,7 @@
+{
+  "pck_name": "DemoMod",
+  "name": "Demo Mod",
+  "author": "you",
+  "description": "Draw 2 extra cards at the start of every turn.",
+  "version": "v0.1.0"
+}

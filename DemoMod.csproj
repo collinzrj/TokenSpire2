@@ -1,0 +1,135 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>true</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Suppress architecture mismatch warning when referencing x64 game DLLs -->
+    <MSBuildWarningsAsMessages>MSB3270</MSBuildWarningsAsMessages>
+    <AssemblyName>DemoMod</AssemblyName>
+    <!-- Prevent duplicate assembly attributes when building from CLI -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+
+  <!-- ============================================================
+       Game path configuration — adjust SteamAppsPath if needed
+       ============================================================ -->
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+    <SteamAppsPath>D:\SteamLibrary\steamapps</SteamAppsPath>
+    <GameDataPath>$(SteamAppsPath)\common\Slay the Spire 2\data_sts2_windows_x86_64</GameDataPath>
+    <ModsPath>$(SteamAppsPath)\common\Slay the Spire 2\mods</ModsPath>
+  </PropertyGroup>
+
+  <!-- Reference the game's own DLLs directly — not copied to output -->
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(GameDataPath)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="sts2">
+      <HintPath>$(GameDataPath)\sts2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- NuGet packages:
+       - BaseLib      : provides ModInitializer attribute stubs + extra mod utilities
+       - ModAnalyzers : Roslyn analyzers for localization helpers
+       - Publicizer   : makes internal/private game types accessible at compile time -->
+  <ItemGroup>
+    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
+    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Tell the publicizer which DLL to open up -->
+  <ItemGroup>
+    <Publicize Include="$(GameDataPath)\sts2.dll" />
+  </ItemGroup>
+
+  <!--
+    Inline C# MSBuild task — generates a Godot 4.5 PCK (format v3).
+    Format v3 differences from v2:
+      - Extra uint64 in header: fileTableOffset (where the file table lives)
+      - File table is at the END of the file, not the beginning
+      - Path strings are null-terminated and padded to 4-byte alignment
+      - flags = 2
+    The game's ModManager discovers mods by finding *.pck files and reading
+    the embedded "mod_manifest.json" entry from inside each PCK.
+  -->
+  <UsingTask TaskName="GenerateGodotPck"
+             TaskFactory="RoslynCodeTaskFactory"
+             AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <ManifestPath ParameterType="System.String" Required="true" />
+      <PckPath      ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.Security.Cryptography" />
+      <Using Namespace="System.Text" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        byte[] json = System.IO.File.ReadAllBytes(ManifestPath);
+
+        // Entry path: null-terminated, padded to 4-byte boundary
+        string entryName  = "mod_manifest.json";
+        byte[] nameBytes  = Encoding.UTF8.GetBytes(entryName + "\0");
+        int    padded     = (nameBytes.Length + 3) & ~3;
+        byte[] pathBuf    = new byte[padded];
+        System.Array.Copy(nameBytes, pathBuf, nameBytes.Length);
+
+        // Layout:
+        //   [0 .. 111]           header (112 bytes)
+        //   [112 .. 112+N-1]     file data (json)
+        //   [112+N ..]           file table
+        ulong fileBase      = 112;
+        ulong fileTableOff  = fileBase + (ulong)json.Length;
+
+        System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(PckPath));
+        System.IO.BinaryWriter f = new System.IO.BinaryWriter(
+            System.IO.File.Open(PckPath, System.IO.FileMode.Create));
+
+        // ── header (112 bytes) ───────────────────────────────────────────
+        f.Write(Encoding.ASCII.GetBytes("GDPC"));
+        f.Write((uint)3);           // PCK format version
+        f.Write((uint)4);           // Godot major
+        f.Write((uint)5);           // Godot minor
+        f.Write((uint)1);           // Godot patch
+        f.Write((uint)2);           // flags
+        f.Write(fileBase);          // uint64: start of file data
+        f.Write(fileTableOff);      // uint64: start of file table (NEW in v3)
+        for (int i = 0; i < 18; i++) f.Write((uint)0);  // 72 bytes reserved
+
+        // ── file data ────────────────────────────────────────────────────
+        f.Write(json);
+
+        // ── file table ───────────────────────────────────────────────────
+        f.Write((uint)1);           // file count
+        // entry
+        f.Write((uint)pathBuf.Length);
+        f.Write(pathBuf);
+        f.Write((ulong)0);          // offset from fileBase
+        f.Write((ulong)json.Length);
+        byte[] md5;
+        using (var alg = MD5.Create()) { md5 = alg.ComputeHash(json); }
+        f.Write(md5);
+        f.Write((uint)0);           // entry flags
+
+        f.Close();
+      ]]></Code>
+    </Task>
+  </UsingTask>
+
+  <!-- ============================================================
+       After a successful build, deploy DLL + regenerated PCK.
+       ============================================================ -->
+  <Target Name="CopyToModsFolderOnBuild" AfterTargets="Build">
+    <MakeDir Directories="$(ModsPath)\DemoMod" />
+    <Copy SourceFiles="$(OutputPath)DemoMod.dll" DestinationFolder="$(ModsPath)\DemoMod" />
+    <GenerateGodotPck
+      ManifestPath="$(ProjectDir)mod_manifest.json"
+      PckPath="$(ModsPath)\DemoMod\DemoMod.pck" />
+  </Target>
+
+</Project>

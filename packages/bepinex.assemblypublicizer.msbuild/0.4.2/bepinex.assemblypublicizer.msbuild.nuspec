@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>BepInEx.AssemblyPublicizer.MSBuild</id>
+    <version>0.4.2</version>
+    <authors>BepInEx</authors>
+    <developmentDependency>true</developmentDependency>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <description>MSBuild integration for BepInEx.AssemblyPublicizer</description>
+    <repository type="git" url="https://github.com/BepInEx/BepInEx.AssemblyPublicizer" />
+    <contentFiles>
+      <files include="cs/any/IgnoresAccessChecksToAttribute.cs" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+</package>
