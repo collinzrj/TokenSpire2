@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class RewardsHandler
 {

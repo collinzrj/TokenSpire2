@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class SimpleCardSelectHandler
 {

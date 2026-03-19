@@ -32,10 +32,10 @@ using MegaCrit.Sts2.Core.Timeline;
 using MegaCrit.Sts2.Core.Unlocks;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Rewards;
-using DemoMod.Handlers;
-using DemoMod.Llm;
+using TokenSpire2.Handlers;
+using TokenSpire2.Llm;
 
-namespace DemoMod;
+namespace TokenSpire2;
 
 public partial class AutoSlayNode : Node
 {

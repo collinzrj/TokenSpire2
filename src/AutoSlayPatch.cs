@@ -1,7 +1,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes;
 
-namespace DemoMod;
+namespace TokenSpire2;
 
 // Attach AutoSlayNode to the game tree when NGame is ready.
 // AutoSlayNode._Ready() checks --autoslay and disables itself if not present.

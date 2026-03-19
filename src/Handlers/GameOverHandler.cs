@@ -1,7 +1,7 @@
 using Godot;
 using MegaCrit.Sts2.Core.Nodes.Screens.GameOverScreen;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class GameOverHandler
 {

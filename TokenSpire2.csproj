@@ -7,7 +7,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- Suppress architecture mismatch warning when referencing x64 game DLLs -->
     <MSBuildWarningsAsMessages>MSB3270</MSBuildWarningsAsMessages>
-    <AssemblyName>DemoMod</AssemblyName>
+    <AssemblyName>TokenSpire2</AssemblyName>
     <!-- Prevent duplicate assembly attributes when building from CLI -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
@@ -131,11 +131,11 @@
        After a successful build, deploy DLL + regenerated PCK.
        ============================================================ -->
   <Target Name="CopyToModsFolderOnBuild" AfterTargets="Build">
-    <MakeDir Directories="$(ModsPath)\DemoMod" />
-    <Copy SourceFiles="$(OutputPath)DemoMod.dll" DestinationFolder="$(ModsPath)\DemoMod" />
+    <MakeDir Directories="$(ModsPath)\TokenSpire2" />
+    <Copy SourceFiles="$(OutputPath)TokenSpire2.dll" DestinationFolder="$(ModsPath)\TokenSpire2" />
     <GenerateGodotPck
       ManifestPath="$(ProjectDir)mod_manifest.json"
-      PckPath="$(ModsPath)\DemoMod\DemoMod.pck" />
+      PckPath="$(ModsPath)\TokenSpire2\TokenSpire2.pck" />
   </Target>
 
 </Project>

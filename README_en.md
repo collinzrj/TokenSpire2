@@ -54,24 +54,35 @@ Model: `anthropic/claude-opus-4.6` via OpenRouter with extended thinking enabled
 ### Prerequisites
 
 - **Slay the Spire 2** (v0.98+) installed via Steam
-- **.NET 9 SDK** — https://dotnet.microsoft.com/download/dotnet/9.0
 
-### Build & Install
+### Option 1: Download Release (Recommended)
+
+1. Download the latest `TokenSpire2-vX.X.X.zip` from [Releases](https://github.com/collinzrj/TokenSpire2/releases)
+2. Extract the zip into your mods folder:
+   - **Windows:** `<Steam>/steamapps/common/Slay the Spire 2/mods/`
+   - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
+3. You should end up with a `TokenSpire2/` folder inside `mods/`
+4. Edit `llm_config.json` inside the `TokenSpire2/` folder — fill in your API key
+5. Launch the game
+
+### Option 2: Build from Source
+
+Requires **.NET 9 SDK** — https://dotnet.microsoft.com/download/dotnet/9.0
 
 ```bash
 dotnet build
 ```
 
-The build automatically copies `DemoMod.dll` to your mods folder:
+The build automatically copies `TokenSpire2.dll` to your mods folder:
 
 **Windows:**
 ```
-<Steam>/steamapps/common/Slay the Spire 2/mods/DemoMod/
+<Steam>/steamapps/common/Slay the Spire 2/mods/TokenSpire2/
 ```
 
 **macOS:**
 ```
-~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/DemoMod/
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/TokenSpire2/
 ```
 
 Game data directory on macOS (used for DLL references):
@@ -81,7 +92,7 @@ Game data directory on macOS (used for DLL references):
 
 ### LLM Configuration
 
-Create `llm_config.json` in the mod folder (next to `DemoMod.dll`):
+Edit `llm_config.json` in the mod folder (next to `TokenSpire2.dll`):
 
 ```json
 {
@@ -113,8 +124,8 @@ The mod automatically configures reasoning/thinking parameters based on the mode
 ```
 sts2_mod/
 ├── MainFile.cs                 Mod entry point (Harmony patches + AutoSlay node)
-├── DemoMod.csproj              Build configuration
-├── DemoMod.json                Mod manifest
+├── TokenSpire2.csproj              Build configuration
+├── TokenSpire2.json                Mod manifest
 ├── src/
 │   ├── AutoSlayNode.cs         Main game loop — state detection, LLM orchestration
 │   ├── AutoSlayCardSelector.cs Mid-combat card selection (ICardSelector)
@@ -138,7 +149,7 @@ sts2_mod/
 
 ## Output Files
 
-The mod writes these files next to `DemoMod.dll` (all sharing the same session timestamp):
+The mod writes these files next to `TokenSpire2.dll` (all sharing the same session timestamp):
 
 | File | Content |
 |------|---------|

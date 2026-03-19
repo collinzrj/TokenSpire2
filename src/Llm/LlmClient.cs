@@ -7,7 +7,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace DemoMod.Llm;
+namespace TokenSpire2.Llm;
 
 public class LlmClient
 {

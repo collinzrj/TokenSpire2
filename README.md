@@ -54,24 +54,35 @@
 ### 前置要求
 
 - **杀戮尖塔 2**（v0.98+），通过 Steam 安装
-- **.NET 9 SDK** — https://dotnet.microsoft.com/download/dotnet/9.0
 
-### 构建与安装
+### 方式一：下载发布版（推荐）
+
+1. 从 [Releases](https://github.com/collinzrj/TokenSpire2/releases) 下载最新的 `TokenSpire2-vX.X.X.zip`
+2. 将 zip 解压到 Mod 文件夹：
+   - **Windows:** `<Steam>/steamapps/common/Slay the Spire 2/mods/`
+   - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
+3. 确保 `mods/` 下有一个 `TokenSpire2/` 文件夹
+4. 编辑 `TokenSpire2/` 文件夹中的 `llm_config.json` — 填入你的 API 密钥
+5. 启动游戏
+
+### 方式二：从源码编译
+
+需要 **.NET 9 SDK** — https://dotnet.microsoft.com/download/dotnet/9.0
 
 ```bash
 dotnet build
 ```
 
-构建会自动将 `DemoMod.dll` 复制到 Mod 文件夹：
+构建会自动将 `TokenSpire2.dll` 复制到 Mod 文件夹：
 
 **Windows:**
 ```
-<Steam>/steamapps/common/Slay the Spire 2/mods/DemoMod/
+<Steam>/steamapps/common/Slay the Spire 2/mods/TokenSpire2/
 ```
 
 **macOS:**
 ```
-~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/DemoMod/
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/TokenSpire2/
 ```
 
 macOS 上游戏数据目录（用于 DLL 引用）：
@@ -81,7 +92,7 @@ macOS 上游戏数据目录（用于 DLL 引用）：
 
 ### LLM 配置
 
-在 Mod 文件夹中（`DemoMod.dll` 旁边）创建 `llm_config.json`：
+编辑 Mod 文件夹中的 `llm_config.json`（`TokenSpire2.dll` 旁边）：
 
 ```json
 {
@@ -113,8 +124,8 @@ Mod 会根据模型自动配置推理/思考参数：
 ```
 sts2_mod/
 ├── MainFile.cs                 Mod 入口（Harmony 补丁 + AutoSlay 节点）
-├── DemoMod.csproj              构建配置
-├── DemoMod.json                Mod 清单
+├── TokenSpire2.csproj              构建配置
+├── TokenSpire2.json                Mod 清单
 ├── src/
 │   ├── AutoSlayNode.cs         主游戏循环 — 状态检测、LLM 调度
 │   ├── AutoSlayCardSelector.cs 战斗中卡牌选择（ICardSelector）
@@ -138,7 +149,7 @@ sts2_mod/
 
 ## 输出文件
 
-Mod 在 `DemoMod.dll` 旁边写入以下文件（共享相同的会话时间戳）：
+Mod 在 `TokenSpire2.dll` 旁边写入以下文件（共享相同的会话时间戳）：
 
 | 文件 | 内容 |
 |------|------|

@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 /// <summary>
 /// Handles two-phase card grid screens: DeckUpgrade, DeckTransform, DeckEnchant, DeckCardSelect.

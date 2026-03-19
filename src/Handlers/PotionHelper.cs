@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 /// <summary>
 /// Potion target resolution matching the official CombatRoomHandler.GetPotionTarget logic.

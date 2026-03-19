@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class CrystalSphereHandler
 {

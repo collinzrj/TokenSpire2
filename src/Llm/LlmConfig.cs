@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace DemoMod.Llm;
+namespace TokenSpire2.Llm;
 
 public class LlmConfig
 {

@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Screens.TreasureRoomRelic;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class TreasureRoomHandler
 {

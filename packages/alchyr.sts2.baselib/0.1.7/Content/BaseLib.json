@@ -1,0 +1,11 @@
+﻿{
+  "id": "BaseLib",
+  "name": "BaseLib",
+  "author": "Alchyr",
+  "description": "Modding utility for Slay the Spire 2",
+  "version": "v0.1.7",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": false
+}

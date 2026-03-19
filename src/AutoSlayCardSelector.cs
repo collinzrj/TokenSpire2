@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DemoMod.Llm;
+using TokenSpire2.Llm;
 using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
 
-namespace DemoMod;
+namespace TokenSpire2;
 
 public class AutoSlayCardSelector : ICardSelector
 {

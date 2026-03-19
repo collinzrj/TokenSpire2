@@ -2,7 +2,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Screens;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class ChooseARelicHandler
 {

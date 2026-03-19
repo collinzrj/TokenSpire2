@@ -1,7 +1,7 @@
 using System.Linq;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class MapHandler
 {

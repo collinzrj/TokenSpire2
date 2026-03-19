@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.RestSite;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 
-namespace DemoMod.Handlers;
+namespace TokenSpire2.Handlers;
 
 public static class RestSiteHandler
 {

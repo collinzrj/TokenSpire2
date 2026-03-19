@@ -23,7 +23,7 @@ using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace DemoMod.Llm;
+namespace TokenSpire2.Llm;
 
 public static class GameStateSerializer
 {

@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace DemoMod.Llm;
+namespace TokenSpire2.Llm;
 
 public static class RunSummaryLogger
 {

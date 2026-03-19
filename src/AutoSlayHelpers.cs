@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 
-namespace DemoMod;
+namespace TokenSpire2;
 
 public static class AutoSlayHelpers
 {

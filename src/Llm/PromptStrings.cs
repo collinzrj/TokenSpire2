@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DemoMod.Llm;
+namespace TokenSpire2.Llm;
 
 public enum PromptLang { En, Zh }
 
