@@ -1,6 +1,6 @@
 [English](README.md) | [中文](README_zh.md)
 
-# AutoSlay — LLM-Powered Slay the Spire 2 Agent
+# TokenSpire2 — LLM-Powered Slay the Spire 2 Agent
 
 An autonomous Slay the Spire 2 mod that plays through entire runs using LLM-powered decision making. The agent handles all game phases — combat, map navigation, events, shops, rewards, and rest sites — by serializing game state into text prompts and parsing LLM responses into game actions.
 
