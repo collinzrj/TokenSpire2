@@ -155,8 +155,8 @@ public static class GameStateSerializer
 
         var btns = AutoSlayHelpers.FindAll<NRewardButton>(screen);
         int idx = 1;
-        int cardRewardIdx = -1;
-        CardReward? cardRewardObj = null;
+        bool hasCardReward = false;
+        var cardRewards = new List<(int takeIdx, CardReward reward)>();
 
         for (int i = 0; i < btns.Count; i++)
         {
@@ -171,8 +171,8 @@ public static class GameStateSerializer
                     desc = P("GoldReward", gold.Amount);
                     break;
                 case CardReward card when card.IsPopulated:
-                    cardRewardIdx = idx;
-                    cardRewardObj = card;
+                    cardRewards.Add((idx, card));
+                    hasCardReward = true;
                     desc = P("CardRewardDesc");
                     break;
                 case PotionReward potion when potion.Potion != null:
@@ -187,13 +187,13 @@ public static class GameStateSerializer
             idx++;
         }
 
-        // Show card details inline if card reward exists
-        if (cardRewardObj != null)
+        // Show card details for all card rewards
+        foreach (var (takeIdx, cardReward) in cardRewards)
         {
             sb.AppendLine();
-            sb.AppendLine(P("CardChoicesFor", cardRewardIdx));
+            sb.AppendLine(P("CardChoicesFor", takeIdx));
             int cardIdx = 1;
-            foreach (var card in cardRewardObj.Cards)
+            foreach (var card in cardReward.Cards)
             {
                 var cardDesc = SafeGetDescription(card);
                 var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
@@ -205,7 +205,7 @@ public static class GameStateSerializer
         sb.AppendLine();
         sb.AppendLine(P("RewardsInstruction"));
         sb.AppendLine(P("TakeInstruction"));
-        if (cardRewardObj != null)
+        if (hasCardReward)
             sb.AppendLine(P("CardInstruction"));
         sb.AppendLine(P("DoneInstruction"));
         sb.AppendLine(P("RewardsExample"));

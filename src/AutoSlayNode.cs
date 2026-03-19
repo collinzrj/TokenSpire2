@@ -538,14 +538,7 @@ public partial class AutoSlayNode : Node
                 _rewardCardChoice = 0;
                 return true;
             }
-            // If we already finished the rewards plan (LLM said DONE without CARD), auto-skip
-            if (_rewardsLlmDone)
-            {
-                MainFile.Logger.Info("[AutoSlay/LLM] Auto-skipping card reward (rewards plan already done)");
-                ApplyCardRewardChoice(-1);
-                return true;
-            }
-            // No pre-choice — ask LLM directly
+            // Always ask LLM for card reward selections (supports multiple card rewards)
             var prompt = GameStateSerializer.SerializeCardReward((NCardRewardSelectionScreen)overlayNode);
             _pendingLlm = _llm!.SendAsync(prompt);
             _pendingContext = "overlay:CardReward";
