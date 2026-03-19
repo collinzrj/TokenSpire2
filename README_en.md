@@ -63,8 +63,20 @@ dotnet build
 ```
 
 The build automatically copies `DemoMod.dll` to your mods folder:
+
+**Windows:**
 ```
 <Steam>/steamapps/common/Slay the Spire 2/mods/DemoMod/
+```
+
+**macOS:**
+```
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/DemoMod/
+```
+
+Game data directory on macOS (used for DLL references):
+```
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/
 ```
 
 ### LLM Configuration
