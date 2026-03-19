@@ -63,8 +63,20 @@ dotnet build
 ```
 
 构建会自动将 `DemoMod.dll` 复制到 Mod 文件夹：
+
+**Windows:**
 ```
 <Steam>/steamapps/common/Slay the Spire 2/mods/DemoMod/
+```
+
+**macOS:**
+```
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/DemoMod/
+```
+
+macOS 上游戏数据目录（用于 DLL 引用）：
+```
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/
 ```
 
 ### LLM 配置
