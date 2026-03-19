@@ -63,7 +63,8 @@
    - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
 3. 确保 `mods/` 下有一个 `TokenSpire2/` 文件夹
 4. 编辑 `TokenSpire2/` 文件夹中的 `llm_config.json` — 填入你的 API 密钥
-5. 启动游戏
+5. 在 Steam 中右键杀戮尖塔 2 → 属性 → 启动选项，添加 `--autoslay`
+6. 启动游戏
 
 ### 方式二：从源码编译
 

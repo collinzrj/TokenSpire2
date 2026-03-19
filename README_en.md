@@ -63,7 +63,8 @@ Model: `anthropic/claude-opus-4.6` via OpenRouter with extended thinking enabled
    - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
 3. You should end up with a `TokenSpire2/` folder inside `mods/`
 4. Edit `llm_config.json` inside the `TokenSpire2/` folder — fill in your API key
-5. Launch the game
+5. In Steam, right-click Slay the Spire 2 → Properties → Launch Options, add `--autoslay`
+6. Launch the game
 
 ### Option 2: Build from Source
 
