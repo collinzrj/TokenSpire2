@@ -14,6 +14,8 @@ public class LlmClient
     private readonly HttpClient _http;
     private readonly string _endpoint;
     private readonly string _model;
+    private readonly bool _thinking;
+    private readonly int _thinkingBudget;
     private readonly List<Message> _history = new();
     private readonly List<List<Message>> _allRuns = new();
     private readonly string _logPath;
@@ -36,6 +38,8 @@ public class LlmClient
             url += "/chat/completions";
         _endpoint = url;
         _model = config.Model;
+        _thinking = config.Thinking;
+        _thinkingBudget = config.ThinkingBudget;
 
         // Set up files next to mod DLL — memory file uses same timestamp as log
         var asmDir = Path.GetDirectoryName(
@@ -69,30 +73,62 @@ public class LlmClient
         MainFile.Logger.Info($"[AutoSlay/LLM] Conversation reset for new run ({(_memory.Length > 0 ? "with" : "no")} memory)");
     }
 
+    private static readonly JsonSerializerOptions _jsonOpts = new()
+    {
+        WriteIndented = true,
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    };
+
     private void SaveHistory()
     {
         try
         {
-            var data = new List<List<object>>();
-            foreach (var run in _allRuns)
-            {
-                var runMessages = new List<object>();
-                foreach (var msg in run)
-                    runMessages.Add(new { role = msg.role, content = msg.content });
-                data.Add(runMessages);
-            }
-            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-            });
-            File.WriteAllText(_historyPath, json);
+            var data = SerializeAllRuns();
+            File.WriteAllText(_historyPath, JsonSerializer.Serialize(data, _jsonOpts));
             MainFile.Logger.Info($"[AutoSlay/LLM] History saved ({_allRuns.Count} runs) to {_historyPath}");
         }
         catch (Exception ex)
         {
             MainFile.Logger.Info($"[AutoSlay/LLM] Failed to save history: {ex.Message}");
         }
+    }
+
+    private void SaveLive()
+    {
+        try
+        {
+            var data = SerializeAllRuns();
+            // Append current (in-progress) run
+            data.Add(SerializeRun(_history));
+            File.WriteAllText(_historyPath, JsonSerializer.Serialize(data, _jsonOpts));
+        }
+        catch { /* ignore — live updates are best-effort */ }
+    }
+
+    private List<object> SerializeAllRuns()
+    {
+        var data = new List<object>();
+        foreach (var run in _allRuns)
+            data.Add(SerializeRun(run));
+        return data;
+    }
+
+    private static object SerializeRun(List<Message> messages)
+    {
+        var msgs = new List<object>();
+        foreach (var msg in messages)
+        {
+            msgs.Add(new
+            {
+                role = msg.role,
+                content = msg.content,
+                thinking = msg.thinking,
+                context = msg.context,
+                timestamp = msg.timestamp
+            });
+        }
+        return new { messages = msgs };
     }
 
     /// <summary>Save reflection/lessons as memory for future runs.</summary>
@@ -111,9 +147,13 @@ public class LlmClient
         }
     }
 
-    public async Task<string> SendAsync(string userMessage)
+    private string? _currentContext;
+
+    public async Task<string> SendAsync(string userMessage, string? context = null)
     {
-        _history.Add(new Message("user", userMessage));
+        _currentContext = context;
+        _history.Add(new Message("user", userMessage, context: context, timestamp: DateTime.Now.ToString("o")));
+        SaveLive();
 
         // Build messages array: system (with memory) + history
         var messages = new List<object>
@@ -188,7 +228,11 @@ public class LlmClient
 
         var result = assistantMessage.ToString();
         var thinking = thinkingContent.ToString();
-        _history.Add(new Message("assistant", result));
+        _history.Add(new Message("assistant", result,
+            thinking: string.IsNullOrEmpty(thinking) ? null : thinking,
+            context: _currentContext,
+            timestamp: DateTime.Now.ToString("o")));
+        SaveLive();
 
         if (!string.IsNullOrEmpty(thinking))
             LogToFile($"[THINKING]\n{thinking}");
@@ -199,21 +243,18 @@ public class LlmClient
 
     private void ApplyReasoningParams(Dictionary<string, object> body)
     {
-        var m = _model.ToLowerInvariant();
-        if (m.Contains("claude") || m.Contains("anthropic"))
+        if (_thinking)
         {
-            // Anthropic: max_tokens format, force Anthropic provider (Bedrock doesn't support thinking)
-            body["reasoning"] = new { max_tokens = 2048 };
-            body["provider"] = new { order = new[] { "Anthropic" } };
+            body["reasoning"] = new { max_tokens = _thinkingBudget };
+            // Claude needs Anthropic provider routing (Bedrock doesn't support thinking)
+            var m = _model.ToLowerInvariant();
+            if (m.Contains("claude") || m.Contains("anthropic"))
+                body["provider"] = new { order = new[] { "Anthropic" } };
         }
-        else if (m.Contains("openai") || m.Contains("/o1") || m.Contains("/o3") || m.Contains("/o4"))
+        else
         {
-            // OpenAI o-series: top-level reasoning with effort
-            body["reasoning"] = new { effort = "high" };
+            body["reasoning"] = new { enabled = false };
         }
-        // DeepSeek, GLM, Kimi, MiniMax, Qwen etc. — thinking is built-in for their
-        // reasoning models (e.g. deepseek-r1, qwen3), no extra params needed.
-        // The reasoning content comes back in message.reasoning automatically.
     }
 
     private string BuildSystemPrompt()
@@ -230,5 +271,5 @@ public class LlmClient
         catch { /* ignore file write errors */ }
     }
 
-    public record Message(string role, string content);
+    public record Message(string role, string content, string? thinking = null, string? context = null, string? timestamp = null);
 }

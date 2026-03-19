@@ -23,6 +23,20 @@ An autonomous Slay the Spire 2 mod that plays through entire runs using LLM-powe
 
 ## Performance
 
+![Floor Reached per Run by Model](docs/performance.png)
+
+### Multi-Model Comparison (Ironclad A0)
+
+| Model | Runs | Avg Floor | Best Floor | Past Act 1 Boss |
+|-------|------|-----------|------------|-----------------|
+| Claude Opus 4.6 | 10 | 17.2 | 23 | 3/10 |
+| GPT-5.4 | 4 | 17.0 | 17 | 0/4 |
+| Qwen3.5-Plus | 5 | 10.4 | 15 | 0/5 |
+
+- **Claude Opus 4.6** performed best — 3 out of 10 runs broke past the Act 1 Boss into Act 2 (reaching floor 23), with an upward trend in later runs
+- **GPT-5.4** consistently reached the Act 1 Boss (floor 17) but failed to defeat it in all 4 runs
+- **Qwen3.5-Plus** averaged around floor 10, struggling mainly with Elite fights and regular monsters
+
 ### Claude Opus 4.6 — First Session (4 Runs, Ironclad A0)
 
 Model: `anthropic/claude-opus-4.6` via OpenRouter with extended thinking enabled.

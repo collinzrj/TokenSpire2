@@ -198,7 +198,7 @@ public partial class AutoSlayNode : Node
                 {
                     // Request LLM for full turn plan
                     var prompt = GameStateSerializer.SerializeCombat(cm);
-                    _pendingLlm = _llm.SendAsync(prompt);
+                    _pendingLlm = _llm.SendAsync(prompt, "combat");
                     _pendingContext = "combat";
                     _combatTurnRequested = true;
                     return;
@@ -268,7 +268,7 @@ public partial class AutoSlayNode : Node
             if (_llm != null)
             {
                 var prompt = GameStateSerializer.SerializeMap(mapScreen);
-                _pendingLlm = _llm.SendAsync(prompt);
+                _pendingLlm = _llm.SendAsync(prompt, "map");
                 _pendingContext = "map";
                 return;
             }
@@ -296,7 +296,7 @@ public partial class AutoSlayNode : Node
                 if (options.Count > 0)
                 {
                     var prompt = GameStateSerializer.SerializeEvent(eventRoom);
-                    _pendingLlm = _llm.SendAsync(prompt);
+                    _pendingLlm = _llm.SendAsync(prompt, "event");
                     _pendingContext = "event";
                     return;
                 }
@@ -328,7 +328,7 @@ public partial class AutoSlayNode : Node
                 if (btns.Count > 0)
                 {
                     var prompt = GameStateSerializer.SerializeRestSite(restRoom);
-                    _pendingLlm = _llm.SendAsync(prompt);
+                    _pendingLlm = _llm.SendAsync(prompt, "restsite");
                     _pendingContext = "restsite";
                     return;
                 }
@@ -392,7 +392,7 @@ public partial class AutoSlayNode : Node
                 }
                 LogOnce("Handling shop (LLM)");
                 var prompt = GameStateSerializer.SerializeShop(shopRoom);
-                _pendingLlm = _llm.SendAsync(prompt);
+                _pendingLlm = _llm.SendAsync(prompt, "shop");
                 _pendingContext = "shop";
                 return;
             }
@@ -540,7 +540,7 @@ public partial class AutoSlayNode : Node
             }
             // Always ask LLM for card reward selections (supports multiple card rewards)
             var prompt = GameStateSerializer.SerializeCardReward((NCardRewardSelectionScreen)overlayNode);
-            _pendingLlm = _llm!.SendAsync(prompt);
+            _pendingLlm = _llm!.SendAsync(prompt, "overlay:CardReward");
             _pendingContext = "overlay:CardReward";
             return true;
         }
@@ -583,7 +583,7 @@ public partial class AutoSlayNode : Node
             }
             // Ask LLM
             var prompt = GameStateSerializer.SerializeRewards(rewardsScreen);
-            _pendingLlm = _llm!.SendAsync(prompt);
+            _pendingLlm = _llm!.SendAsync(prompt, "overlay:Rewards");
             _pendingContext = "overlay:Rewards";
             return true;
         }
@@ -608,7 +608,7 @@ public partial class AutoSlayNode : Node
                     _ => "CHOOSE A CARD"
                 };
                 var prompt = GameStateSerializer.SerializeCardGrid(overlayNode, screenType);
-                _pendingLlm = _llm!.SendAsync(prompt);
+                _pendingLlm = _llm!.SendAsync(prompt, "overlay:CardGrid");
                 _pendingContext = "overlay:CardGrid";
                 return true;
             }
@@ -629,7 +629,7 @@ public partial class AutoSlayNode : Node
             if (cards.Count > 0)
             {
                 var prompt = GameStateSerializer.SerializeCardGrid(overlayNode, "CHOOSE A CARD");
-                _pendingLlm = _llm!.SendAsync(prompt);
+                _pendingLlm = _llm!.SendAsync(prompt, "overlay:SimpleCardSelect");
                 _pendingContext = "overlay:SimpleCardSelect";
                 return true;
             }
@@ -1157,7 +1157,7 @@ public partial class AutoSlayNode : Node
                     var stats = RunSummaryLogger.LastRunStats ?? "No stats available";
                     var currentMemory = _llm.Memory.Length > 0 ? _llm.Memory : "(empty — this is your first run)";
                     var prompt = PromptStrings.Get("GameOverReflection", stats, currentMemory);
-                    _pendingLlm = _llm.SendAsync(prompt);
+                    _pendingLlm = _llm.SendAsync(prompt, "gameover_reflection");
                     _pendingContext = "gameover_reflection";
                     return 1.0;
                 }

@@ -2,5 +2,7 @@
   "Url": "https://openrouter.ai/api/v1",
   "Key": "sk-or-v1-your-key-here",
   "Model": "anthropic/claude-opus-4.6",
-  "Lang": "zh"
+  "Lang": "zh",
+  "Thinking": true,
+  "ThinkingBudget": 2048
 }

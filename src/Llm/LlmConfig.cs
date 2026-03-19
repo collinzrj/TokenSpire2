@@ -1,5 +1,6 @@
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace TokenSpire2.Llm;
 
@@ -9,6 +10,9 @@ public class LlmConfig
     public string Key { get; set; } = "";
     public string Model { get; set; } = "gpt-4o";
     public string Lang { get; set; } = "zh";
+    public bool Thinking { get; set; } = true;
+    [JsonPropertyName("thinking_budget")]
+    public int ThinkingBudget { get; set; } = 2048;
 
     public static LlmConfig? Load()
     {
@@ -30,7 +34,7 @@ public class LlmConfig
             if (config == null || string.IsNullOrEmpty(config.Url) || string.IsNullOrEmpty(config.Key))
                 return null;
             PromptStrings.Language = config.Lang?.ToLower() == "en" ? PromptLang.En : PromptLang.Zh;
-            MainFile.Logger.Info($"[AutoSlay] LLM config loaded from {path}, model={config.Model}, lang={config.Lang}");
+            MainFile.Logger.Info($"[AutoSlay] LLM config loaded from {path}, model={config.Model}, lang={config.Lang}, thinking={config.Thinking}");
             return config;
         }
         catch (System.Exception ex)
