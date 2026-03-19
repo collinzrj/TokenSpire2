@@ -1,0 +1,151 @@
+﻿[
+    {
+        "timestamp":  "2026-03-19 04:03:01",
+        "model":  "anthropic/claude-opus-4.6",
+        "result":  "defeat",
+        "seed":  "AUTOSLAY42",
+        "character":  "IRONCLAD",
+        "ascension_level":  0,
+        "floor":  9,
+        "hp":  "0/84",
+        "gold":  176,
+        "run_time_seconds":  876,
+        "killed_by":  "SEWER_CLAM_NORMAL",
+        "deck":  [
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "BASH",
+                     "SHRUG_IT_OFF",
+                     "POMMEL_STRIKE",
+                     "SWORD_BOOMERANG",
+                     "BLOODLETTING"
+                 ],
+        "relics":  [
+                       "BURNING_BLOOD",
+                       "PRECISE_SCISSORS",
+                       "CHOSEN_CHEESE"
+                   ],
+        "potions":  [
+
+                    ]
+    },
+    {
+        "timestamp":  "2026-03-19 04:24:48",
+        "model":  "anthropic/claude-opus-4.6",
+        "result":  "defeat",
+        "seed":  "AUTOSLAY42",
+        "character":  "IRONCLAD",
+        "ascension_level":  0,
+        "floor":  9,
+        "hp":  "0/80",
+        "gold":  196,
+        "run_time_seconds":  1154,
+        "killed_by":  "TERROR_EEL_ELITE",
+        "deck":  [
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "BASH",
+                     "SHRUG_IT_OFF",
+                     "POMMEL_STRIKE",
+                     "POMMEL_STRIKE",
+                     "BLOOD_WALL",
+                     "BLOODLETTING",
+                     "RAGE"
+                 ],
+        "relics":  [
+                       "BURNING_BLOOD",
+                       "PRECISE_SCISSORS"
+                   ],
+        "potions":  [
+
+                    ]
+    },
+    {
+        "timestamp":  "2026-03-19 04:47:20",
+        "model":  "anthropic/claude-opus-4.6",
+        "result":  "defeat",
+        "seed":  "AUTOSLAY42",
+        "character":  "IRONCLAD",
+        "ascension_level":  0,
+        "floor":  9,
+        "hp":  "0/80",
+        "gold":  196,
+        "run_time_seconds":  1292,
+        "killed_by":  "TERROR_EEL_ELITE",
+        "deck":  [
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "BASH",
+                     "SHRUG_IT_OFF",
+                     "POMMEL_STRIKE",
+                     "POMMEL_STRIKE",
+                     "BLOOD_WALL",
+                     "BLOODLETTING",
+                     "RAGE"
+                 ],
+        "relics":  [
+                       "BURNING_BLOOD",
+                       "PRECISE_SCISSORS"
+                   ],
+        "potions":  [
+
+                    ]
+    },
+    {
+        "timestamp":  "2026-03-19 05:17:24",
+        "model":  "anthropic/claude-opus-4.6",
+        "result":  "defeat",
+        "seed":  "AUTOSLAY42",
+        "character":  "IRONCLAD",
+        "ascension_level":  0,
+        "floor":  17,
+        "hp":  "0/80",
+        "gold":  42,
+        "run_time_seconds":  1438,
+        "killed_by":  "WATERFALL_GIANT_BOSS",
+        "deck":  [
+                     "STRIKE_IRONCLAD",
+                     "STRIKE_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "DEFEND_IRONCLAD",
+                     "BASH",
+                     "SHRUG_IT_OFF",
+                     "SHRUG_IT_OFF",
+                     "HEADBUTT",
+                     "BATTLE_TRANCE",
+                     "WHIRLWIND",
+                     "VICIOUS",
+                     "JUGGLING",
+                     "STAMPEDE",
+                     "TWIN_STRIKE"
+                 ],
+        "relics":  [
+                       "BURNING_BLOOD",
+                       "BOOMING_CONCH",
+                       "REGAL_PILLOW"
+                   ],
+        "potions":  [
+
+                    ]
+    }
+]

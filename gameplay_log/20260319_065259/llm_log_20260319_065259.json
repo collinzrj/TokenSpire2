@@ -1,0 +1,43 @@
+[
+  {
+    "timestamp": "2026-03-19 07:32:35",
+    "model": "anthropic/claude-opus-4.6",
+    "result": "defeat",
+    "seed": "AUTOSLAY42",
+    "character": "IRONCLAD",
+    "ascension_level": 0,
+    "floor": 17,
+    "hp": "0/80",
+    "gold": 200,
+    "run_time_seconds": 2360,
+    "killed_by": "WATERFALL_GIANT_BOSS",
+    "deck": [
+      "STRIKE_IRONCLAD",
+      "STRIKE_IRONCLAD",
+      "STRIKE_IRONCLAD",
+      "DEFEND_IRONCLAD",
+      "DEFEND_IRONCLAD",
+      "DEFEND_IRONCLAD",
+      "DEFEND_IRONCLAD",
+      "BASH",
+      "SHRUG_IT_OFF",
+      "SHRUG_IT_OFF",
+      "HEADBUTT",
+      "BATTLE_TRANCE",
+      "WHIRLWIND",
+      "MOLTEN_FIST",
+      "JUGGLING",
+      "TWIN_STRIKE",
+      "BLOODLETTING",
+      "RUPTURE",
+      "BLOODLETTING"
+    ],
+    "relics": [
+      "BURNING_BLOOD",
+      "PRECISE_SCISSORS",
+      "POTION_BELT",
+      "REGAL_PILLOW"
+    ],
+    "potions": []
+  }
+]

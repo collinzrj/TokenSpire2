@@ -1,0 +1,989 @@
+﻿{
+    "value":  [
+                  {
+                      "role":  "user",
+                      "content":  "=== 事件 ===\r\n选择一个选项：\r\n  [1] 轰鸣海螺: 在精英战的战斗开始时，额外抽2张牌。\r\n  [2] 精准剪刀: 从你的牌组中移除1张牌。\r\n  [3] 卷轴箱: 失去所有金币，并从2个卡牌包中选择1包加入你的牌组。\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 2\n\n精准剪刀（移除卡牌）几乎在任何时候都是极高价值的选择。移除一张打击或其他弱牌能显著提升牌组的一致性和效率，相当于一次免费的\"净化\"效果。轰鸣海螺虽然不错但仅限精英战开局，而卷轴箱需要牺牲所有金币，风险太大。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从你的牌组中选择 1 张牌移除（例如遗物或事件效果）：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [7] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [8] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [9] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [10] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n移除一张打击是标准操作。打击是牌组中效率最低的卡牌（1能量仅6点伤害），移除它能提升抽到更好牌的概率，让牌组更精简高效。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第0行, 第3列\r\n生命值: 80/80 | 金币: 99\r\n\r\n完整地图（第1行=起始房间，行数越大越接近Boss）：\r\n  Row 1: (1,0)=Monster -\u003e (2,1),(2,0)  (1,5)=Monster -\u003e (2,6),(2,4)\r\n  Row 2: (2,0)=Monster -\u003e (3,0)  (2,1)=Unknown -\u003e (3,2)  (2,4)=Monster -\u003e (3,4),(3,5)  (2,6)=Monster -\u003e (3,6)\r\n  Row 3: (3,0)=Unknown -\u003e (4,0)  (3,2)=Monster -\u003e (4,2)  (3,4)=Monster -\u003e (4,4)  (3,5)=Unknown -\u003e (4,4)  (3,6)=Monster -\u003e (4,6)\r\n  Row 4: (4,0)=Monster -\u003e (5,1)  (4,2)=Monster -\u003e (5,3),(5,1)  (4,4)=Monster -\u003e (5,3)  (4,6)=Unknown -\u003e (5,6)\r\n  Row 5: (5,1)=Monster -\u003e (6,0),(6,1)  (5,3)=Monster -\u003e (6,3),(6,2)  (5,6)=Monster -\u003e (6,6)\r\n  Row 6: (6,0)=Unknown -\u003e (7,0)  (6,1)=RestSite -\u003e (7,1)  (6,2)=Shop -\u003e (7,1)  (6,3)=RestSite -\u003e (7,3)  (6,6)=RestSite -\u003e (7,6)\r\n  Row 7: (7,0)=Unknown -\u003e (8,0)  (7,1)=Monster -\u003e (8,0),(8,2)  (7,3)=Monster -\u003e (8,3)  (7,6)=Monster -\u003e (8,6)\r\n  Row 8: (8,0)=Elite -\u003e (9,0)  (8,2)=Monster -\u003e (9,3),(9,2)  (8,3)=Elite -\u003e (9,3)  (8,6)=RestSite -\u003e (9,6)\r\n  Row 9: (9,0)=Treasure -\u003e (10,1),(10,0)  (9,2)=Treasure -\u003e (10,2)  (9,3)=Treasure -\u003e (10,4),(10,3)  (9,6)=Treasure -\u003e (10,6)\r\n  Row 10: (10,0)=RestSite -\u003e (11,0)  (10,1)=Monster -\u003e (11,1)  (10,2)=Elite -\u003e (11,1)  (10,3)=Unknown -\u003e (11,3)  (10,4)=Monster -\u003e (11,3),(11,5)  (10,6)=Unknown -\u003e (11,6)\r\n  Row 11: (11,0)=Monster -\u003e (12,0)  (11,1)=Monster -\u003e (12,2),(12,1)  (11,3)=RestSite -\u003e (12,4),(12,2)  (11,5)=Monster -\u003e (12,6)  (11,6)=Monster -\u003e (12,6)\r\n  Row 12: (12,0)=Monster -\u003e (13,0)  (12,1)=Monster -\u003e (13,1)  (12,2)=Unknown -\u003e (13,3),(13,1)  (12,4)=Monster -\u003e (13,5)  (12,6)=Unknown -\u003e (13,6)\r\n  Row 13: (13,0)=Monster -\u003e (14,0)  (13,1)=Monster -\u003e (14,1),(14,2)  (13,3)=Monster -\u003e (14,3)  (13,5)=Elite -\u003e (14,5)  (13,6)=Unknown -\u003e (14,6)\r\n  Row 14: (14,0)=Monster -\u003e (15,1)  (14,1)=Monster -\u003e (15,2)  (14,2)=Shop -\u003e (15,3)  (14,3)=Elite -\u003e (15,3)  (14,5)=Monster -\u003e (15,4)  (14,6)=Shop -\u003e (15,6)\r\n  Row 15: (15,1)=RestSite -\u003e (16,3)  (15,2)=RestSite -\u003e (16,3)  (15,3)=RestSite -\u003e (16,3)  (15,4)=RestSite -\u003e (16,3)  (15,6)=RestSite -\u003e (16,3)\r\n  BOSS: (16,3)=Boss\r\n\r\n可选的下一个房间：\r\n  [1] Monster (row 1, col 0)\r\n  [2] Monster (row 1, col 5)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n选择左侧路线。分析路径：\n\n- 从(1,0)出发，可以走(2,1)未知事件，然后通往中部路线\n- 第6行有休息站(6,1)和商店(6,2)可选，为第8行的精英战做准备\n- 第8行可以打精英(8,0)获取遗物，之后直接进宝箱房(9,0)\n- 整体路线灵活度高，有充足的怪物战来构建牌组，同时有休息/商店节点缓冲精英战压力\n\n右侧路线虽然也不差，但偏线性且更难接触到精英，获取遗物的机会较少。早期打精英对后续发展很有帮助。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 80/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 4 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] SEAPUNK — HP: 45/45 | Block: 0\r\n       意图: 攻击 11\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5 -\u003e A\nPLAY 1\nPLAY 2\nEND_TURN\n\n打两张防御获得10格挡，敌人攻击11仅受1点伤害，同时用打击输出6点。全防御虽然不受伤但会拖长战斗，1点伤害换6点输出非常划算，况且有燃血在战斗结束后回6点。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 79/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 4 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] SEAPUNK — HP: 39/45 | Block: 0\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nBash先给易伤，再补一刀打击。虽然吃8点伤害（79→71），但敌人从39降到25，而且接下来2回合有易伤加成（打击变9伤害），可以快速结束战斗。血量充足且有燃血回复，这里追求速战速决更划算。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 71/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 4 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] SEAPUNK — HP: 22/45 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: Buff + Defend\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3 -\u003e A\nPLAY 5 -\u003e A\nEND_TURN\n\n敌人这回合是增益+防御，不会攻击，所以不需要格挡。趁易伤还在，两张打击各造成9点伤害（6×1.5=9），总共18点。敌人可能有一些格挡吸收部分伤害，但这是最优输出回合。剩余1能量没有有意义的进攻牌可打，防御在无攻击回合也没价值。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 71/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 4 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] SEAPUNK — HP: 4/45 | Block: 7 | 能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 12\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1 -\u003e A\nPLAY 2 -\u003e A\nEND_TURN\n\n两张打击共12点伤害，减去7格挡后穿透5点，足以击杀剩余4HP的敌人。第三点能量不需要花费，战斗结束燃血回复6点血量。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (13g)\r\n  [TAKE 2] 药水: WEAK_POTION — 给予{WeakPower}层虚弱。\r\n  [TAKE 3] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 3 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BULLY (Attack, 0 能量, Uncommon) — 造成4点伤害。\n该敌人身上每有一层易伤就额外造成2点伤害。\r\n  Card 2: THUNDERCLAP (Attack, 1 能量, Common) — 对所有敌人造成4点伤害，给予1层易伤。\r\n  Card 3: SHRUG_IT_OFF (Skill, 1 能量, Common) — 获得8点格挡。\n抽1张牌。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nTAKE 2\nCARD 3\nDONE\n\nShrug It Off是铁卫最好的通用牌之一。比防御多3点格挡（8 vs 5），还能抽1张牌实现循环，等于不占手牌位。在任何流派中都是优秀的防御牌，远优于Thunderclap和Bully。金币和虚弱药水都顺手拿了。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第1行, 第0列\r\n生命值: 77/80 | 金币: 112\r\n可选的下一个房间：\r\n  [1] Monster (row 2, col 0)\r\n  [2] Unknown (row 2, col 1)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 2\n\n选择未知事件。血量充足（77/80），未知事件有机会获得额外奖励（卡牌移除、遗物等），之后路径走(3,2)也是怪物房，不会错过构建牌组的机会。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 事件 ===\r\n选择一个选项：\r\n  [1] 大快朵颐: 从8张随机普通牌中选择2张加入到你的牌组。\r\n  [2] 仔细翻找: 失去14点生命，获得天选芝士。\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n从8张随机普通牌中选2张，早期有机会挑到好的通用普通牌来奠定牌组基础（如更多Shrug It Off、Pommel Strike等）。天选芝士需要花14HP，效果不确定，而且我们刚花了事件移除卡牌来精简牌组，不想冒险拿未知遗物。选择权在我们手上——从8张里挑2张好牌的概率不低。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 2 张牌 ===\r\n从你的牌组中选择 2 张牌移除（例如遗物或事件效果）：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [2] BLOOD_WALL (Skill, 2 能量) — 失去2点生命。\n获得16点格挡。\r\n  [3] PERFECTED_STRIKE (Attack, 2 能量) — 造成6点伤害。\n你每有一张名字中含有“打击”的牌，伤害+2。\r\n  [4] MOLTEN_FIST (Attack, 1 能量) — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [5] HEADBUTT (Attack, 1 能量) — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [6] SETUP_STRIKE (Attack, 1 能量) — 造成7点伤害。\n在本回合内获得2点力量。\r\n  [7] TRUE_GRIT (Skill, 1 能量) — 获得7点格挡。\n 随机消耗1张牌。\r\n  [8] ANGER (Attack, 0 能量) — 造成6点伤害。\n将一张此牌的复制品加入你的弃牌堆。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 2 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\nCHOOSE 5\n\n两张最佳选择：\n\n- **Shrug It Off** — 已经有一张，再来一张更好。1能量8格挡+抽1牌，铁卫最优通用防御牌。\n- **Headbutt** — 1能量9伤害非常高效，而且能把弃牌堆的关键牌（如Bash）放回牌顶，小牌组里这个检索能力极其强大。\n\n其他牌要么太贵（Blood Wall 2能量）、要么有负面效果（True Grit随机消耗）、要么会膨胀牌组（Anger）、要么随着移除打击会变弱（Perfected Strike）。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第2行, 第1列\r\n生命值: 77/80 | 金币: 112\r\n可选的下一个房间：\r\n  [1] Monster (row 3, col 2)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n只有一条路可走，前往怪物房继续战斗构建牌组。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 77/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 7 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] SLUDGE_SPINNER — HP: 37/37 | Block: 0\r\n       意图: 攻击 8 + Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nPLAY 2\nEND_TURN\n\n先Bash上2层易伤为后续输出做准备，再Shrug It Off获得8格挡完全挡住8点攻击，还能抽1张牌。这样既不受伤又为下回合创造了易伤窗口进行高效输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 77/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: WeakPower(1: 虚弱的生物造成的攻击伤害减少25%。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成4点伤害。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成4点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成4点伤害。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 1 | 弃牌堆: 6\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] SLUDGE_SPINNER — HP: 29/37 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 6 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1 -\u003e A\nPLAY 2 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\n趁易伤还在全力输出。虽然我被虚弱，但打击在易伤下仍造成6点（4×1.5=6），三张共18点伤害，敌人从29降到11。吃6点伤害可以接受，速战速决比拖延更好——敌人这回合还有Buff意图，拖下去会更难打。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 71/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 7 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] SLUDGE_SPINNER — HP: 11/37 | Block: 0 | 能力: StrengthPower(3: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 11 + Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\nHeadbutt（9）+ 打击（6）= 15点伤害，远超敌人11HP，轻松击杀。不需要防御，战斗结束燃血回6血。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (17g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BATTLE_TRANCE (Skill, 0 能量, Uncommon) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  Card 2: EVIL_EYE (Skill, 1 能量, Uncommon) — 获得8点格挡。\n如果你在本回合消耗过卡牌，则额外获得8点格挡。\r\n  Card 3: SHRUG_IT_OFF (Skill, 1 能量, Common) — 获得8点格挡。\n抽1张牌。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 1\nDONE\n\nBattle Trance是极其强力的牌——0能量抽3张，在Act 1能量紧张的情况下提供巨大的手牌优势。虽然限制当回合不能再抽牌（与Shrug It Off的抽牌有些冲突），但只要注意出牌顺序（先Shrug再Battle Trance，或反之根据需要），0费抽3的价值在小牌组里是压倒性的。第二张Shrug也很好，但Battle Trance更有上限。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第3行, 第2列\r\n生命值: 77/80 | 金币: 129\r\n可选的下一个房间：\r\n  [1] Monster (row 4, col 2)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n唯一选择，继续前进。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 77/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 8 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] TOADPOLE — HP: 21/21 | Block: 0\r\n       意图: Buff\r\n  [B] TOADPOLE — HP: 25/25 | Block: 0\r\n       意图: 攻击 7\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\nPLAY 1 -\u003e A\nPLAY 5 -\u003e A\nEND_TURN\n\n先Shrug It Off获得8格挡（覆盖B的7点攻击）并抽1牌，然后两张打击集火A（正在Buff的那只），12点伤害。优先击杀会Buff的敌人，防止它越变越强。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 77/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [3] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 2 | 弃牌堆: 6\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] TOADPOLE — HP: 9/21 | Block: 0 | 能力: ThornsPower(2: 当被攻击命中时，反击造成伤害。)\r\n       意图: 攻击 9\r\n  [B] TOADPOLE — HP: 25/25 | Block: 0\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\n\n先打Battle Trance（0能量）抽3张牌，看看能拿到什么攻击牌来处理A（9HP）。因为Battle Trance阻止后续抽牌，所以先打它再决定后续。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 77/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [6] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [7] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 5 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] TOADPOLE — HP: 9/21 | Block: 0 | 能力: ThornsPower(2: 当被攻击命中时，反击造成伤害。)\r\n       意图: 攻击 9\r\n  [B] TOADPOLE — HP: 25/25 | Block: 0\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5 -\u003e A\nPLAY 2 -\u003e B\nEND_TURN\n\nHeadbutt精确击杀A（9伤害=9HP），吃2点荆棘。A死后没有攻击伤害，B在Buff不攻击。剩余2能量用Bash打B，造成8点伤害并上2层易伤，为下回合高效输出做准备。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 75/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 1 | 弃牌堆: 7\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] TOADPOLE — HP: 17/25 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。), ThornsPower(2: 当被攻击命中时，反击造成伤害。)\r\n       意图: 攻击 9\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\nPLAY 2 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\n先Shrug It Off获得8格挡+抽1牌。然后两张打击在易伤加成下各造成9点（6×1.5），共18点伤害击杀17HP的敌人。荆棘共4点（2×2次攻击）被8格挡完全吸收，本回合0受伤，完美。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (18g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BODY_SLAM (Attack, 1 能量, Common) — 造成你当前格挡值的伤害。\r\n  Card 2: WHIRLWIND (Attack, X 能量, Uncommon) — 对所有敌人造成5点伤害X次。\r\n  Card 3: TREMBLE (Skill, 1 能量, Common) — 给予2层易伤。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 2\nDONE\n\nWhirlwind是铁卫最强的攻击牌之一。X费对全体敌人造成5×X点伤害，3能量就是15点群伤，非常高效的AOE清场工具。对多敌人战斗和精英战都极为有用。Body Slam需要格挡堆叠配合，目前牌组还没到那个程度；Tremble只上易伤不输出，Bash已经能胜任这个角色。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第4行, 第2列\r\n生命值: 80/80 | 金币: 147\r\n可选的下一个房间：\r\n  [1] Monster (row 5, col 1)\r\n  [2] Monster (row 5, col 3)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 2\n\n选择右侧路线，通往(6,2)商店或(6,3)休息站。147金币在手，先逛商店强化牌组，为第8行的精英战做准备。商店可以买强力牌、移除弱牌或拿遗物，在精英战前最大化战斗力。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 80/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 9 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 80/80 | Block: 0\r\n       意图: 攻击 8 + CardDebuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\n\n先Shrug It Off获得8格挡并抽1牌，看抽到什么再决定后续。8格挡刚好覆盖8点攻击。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 80/80 | 格挡: 8 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 8 | 弃牌堆: 1\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 80/80 | Block: 0\r\n       意图: 攻击 8 + CardDebuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nPLAY 3\nEND_TURN\n\n已有8格挡完全覆盖8点攻击。剩余2能量最大化输出：打击6点 + Whirlwind 1能量5点 = 11点伤害。如果把Whirlwind留到有3能量的回合虽然能打15，但这场80HP的战斗需要每回合都保持输出效率。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 80/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [3] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 3 | 弃牌堆: 6\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 69/80 | Block: 0\r\n       意图: 攻击 5 + Summon\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3 -\u003e A\nPLAY 2 -\u003e A\nEND_TURN\n\nSmoggyPower限制每回合只能打1张技能牌，而攻击牌不受限。Bash(8) + Headbutt(9) = 17点伤害，敌人降到52HP，同时上2层易伤加速后续击杀。敌人只攻击5点，不值得用唯一的技能位来挡。敌人要召唤小怪，需要尽快输出杀死本体。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [3] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [6] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [7] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 3\n\nHeadbutt的检索效果——把Whirlwind放到牌顶。敌人正在召唤小怪，下回合抽到Whirlwind可以用全部3能量打15点群伤，同时清除召唤出来的小怪并对本体造成高伤害。在SmoggyPower限制技能的情况下，攻击牌才是主力输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 75/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 1 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 9 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] GAS_BOMB — HP: 10/10 | Block: 0 | 能力: MinionPower(1: 爪牙会在他们的领导者死亡时放弃战斗。)\r\n       意图: 攻击 8\r\n  [B] LIVING_FOG — HP: 48/80 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\n\n先打Battle Trance（0能量技能，用掉SmoggyPower的唯一技能位），抽3张牌看有什么——反正SmoggyPower限制下防御牌也打不了第二张。抽完后再决定是否全力Whirlwind或混合输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 75/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 1 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [6] SHRUG_IT_OFF (Skill, 1 能量) (无法打出) — 获得8点格挡。\n抽1张牌。\r\n  [7] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 6 | 弃牌堆: 1\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] GAS_BOMB — HP: 10/10 | Block: 0 | 能力: MinionPower(1: 爪牙会在他们的领导者死亡时放弃战斗。)\r\n       意图: 攻击 8\r\n  [B] LIVING_FOG — HP: 48/80 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\nEND_TURN\n\n全部3能量投入Whirlwind——每个敌人受15点伤害（5×3次）。A（10HP）直接死亡，B因易伤受到22点（15×1.5），从48降到26。杀死小怪后只吃B的8点伤害而非两个合计16点，大幅减少总伤害。无法打防御（技能位已用），全力输出清场是最优解。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 67/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 1 | 弃牌堆: 8\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 27/80 | Block: 0\r\n       意图: 攻击 5 + Summon\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\n\nShrug It Off是最好的技能牌选择（8格挡 \u003e 5格挡），还能抽最后1张牌——可能是攻击牌。SmoggyPower限制只能打1张技能，先看抽到什么。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 67/80 | 格挡: 8 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [5] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n抽牌堆: 0 | 弃牌堆: 9\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 27/80 | Block: 0\r\n       意图: 攻击 5 + Summon\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5 -\u003e A\n\nHeadbutt打9点伤害，敌人降到18HP。然后从弃牌堆检索Whirlwind放到牌顶——下回合可以用3能量打15点群伤，配合其他攻击牌终结本体并清理新召唤的小怪。8格挡覆盖5点攻击绰绰有余。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [6] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n  [7] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [8] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [9] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 2\n\n把Whirlwind放到牌顶，下回合必定抽到它。用3能量Whirlwind打15点群伤，可以同时清理新召唤的小怪并重创本体（18HP），很可能直接终结战斗。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 67/80 | 格挡: 8 | 能量: 1/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n抽牌堆: 1 | 弃牌堆: 9\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 18/80 | Block: 0\r\n       意图: 攻击 5 + Summon\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "END_TURN\n\n所有手牌都是无法打出的防御牌。8格挡可以覆盖5点攻击，不受伤。Whirlwind已经在牌顶，下回合必定抽到，配合3能量打15点群伤直接终结战斗。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 67/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 3 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 9 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] GAS_BOMB — HP: 10/10 | Block: 0 | 能力: MinionPower(1: 爪牙会在他们的领导者死亡时放弃战斗。)\r\n       意图: 攻击 8\r\n  [B] GAS_BOMB — HP: 10/10 | Block: 0 | 能力: MinionPower(1: 爪牙会在他们的领导者死亡时放弃战斗。)\r\n       意图: 攻击 8\r\n  [C] LIVING_FOG — HP: 18/80 | Block: 0\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\n\n先Shrug It Off获得8格挡+抽1牌（用掉唯一技能位）。然后可以用剩余2能量打Whirlwind X=2，对所有敌人造成10点伤害，击杀两个小怪（10HP），并将本体降到8HP。8格挡完美覆盖本体的8点攻击，本回合0受伤。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 67/80 | 格挡: 8 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 3 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n抽牌堆: 8 | 弃牌堆: 1\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] GAS_BOMB — HP: 10/10 | Block: 0 | 能力: MinionPower(1: 爪牙会在他们的领导者死亡时放弃战斗。)\r\n       意图: 攻击 8\r\n  [B] GAS_BOMB — HP: 10/10 | Block: 0 | 能力: MinionPower(1: 爪牙会在他们的领导者死亡时放弃战斗。)\r\n       意图: 攻击 8\r\n  [C] LIVING_FOG — HP: 18/80 | Block: 0\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\nEND_TURN\n\nWhirlwind用2能量 = 5×2 = 10点群伤。两个Gas Bomb（10HP）全部击杀，Living Fog从18降到8HP。8格挡完美覆盖Fog的8点攻击，本回合0受伤。小怪是Minion，杀本体它们也会死，但直接群伤清掉更高效。下回合轻松终结Fog。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 67/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: SmoggyPower(1: 每回合你只能打出1张技能牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 3 | 弃牌堆: 6\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] LIVING_FOG — HP: 8/80 | Block: 0\r\n       意图: 攻击 5 + Summon\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nEND_TURN\n\nHeadbutt 9点伤害直接击杀8HP的Living Fog，战斗结束。燃血回复6点，回到73/80。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (20g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: FORGOTTEN_RITUAL (Skill, 1 能量, Uncommon) — 如果你在本回合消耗过卡牌，则获得3能量。\r\n  Card 2: MOLTEN_FIST (Attack, 1 能量, Common) — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  Card 3: VICIOUS (Power, 1 能量, Uncommon) — 每当你给予易伤时，抽1张牌。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 2\nDONE\n\nMolten Fist很适合当前牌组。1能量10伤害效率极高，配合Bash上的易伤可以翻倍层数加速输出，而且自带消耗不会膨胀牌组——实际上让牌组在战斗中越打越精简。Forgotten Ritual需要消耗配合但目前缺乏触发源，Vicious只在给易伤时抽牌，触发频率太低不值1能量。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第5行, 第3列\r\n生命值: 73/80 | 金币: 167\r\n可选的下一个房间：\r\n  [1] Shop (row 6, col 2)\r\n  [2] RestSite (row 6, col 3)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n167金币在手，商店优先！73/80血量完全不需要休息。商店可以移除打击、购买强力卡牌或遗物，为第8行的精英战做好充足准备。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 商店 ===\r\n金币: 167 | 生命值: 73/80\r\n\r\n卡牌：\r\n  [1] SETUP_STRIKE (Attack, 1 能量, Common) — 造成7点伤害。\n在本回合内获得2点力量。 | 价格: 52g\r\n  [2] CINDER (Attack, 2 能量, Common) — 造成17点伤害。\n消耗你的抽牌堆顶部的牌。 | 价格: 48g\r\n  [3] TRUE_GRIT (Skill, 1 能量, Common) — 获得7点格挡。\n 随机消耗1张牌。 | 价格: 49g\r\n  [4] HAVOC (Skill, 1 能量, Common) — 打出抽牌堆顶部的牌并将其消耗。 | 价格: 26g [折扣]\r\n  [5] STAMPEDE (Power, 2 能量, Uncommon) — 在你的回合结束时，随机打出你手牌中的1张攻击牌攻击随机敌人。 | 价格: 75g\r\n  [6] RESTLESSNESS (Skill, 0 能量, Uncommon) — 保留。\n如果你的手牌为空，则抽2张牌并获得2能量。 | 价格: 82g\r\n  [7] MASTER_OF_STRATEGY (Skill, 0 能量, Rare) — 抽3张牌。\n消耗。 | 价格: 173g (金币不足)\r\n\r\n遗物：\r\n  [8] HAPPY_FLOWER (Common) — 每{Turns}个回合，获得{Energy:energyIcons()}。 | 价格: 222g (金币不足)\r\n  [9] GREMLIN_HORN (Uncommon) — 每当有一名敌人死亡时，获得{Energy:energyIcons()}并抽{Cards}张牌。 | 价格: 255g (金币不足)\r\n  [10] KIFUDA (Shop) — 拾起时，从你的牌组中选择至多{Cards}张牌，附魔：伶俐。 | 价格: 212g (金币不足)\r\n\r\n药水：\r\n  [11] BLOCK_POTION (Common) — 获得{Block}点格挡。 | 价格: 50g\r\n  [12] POWER_POTION (Common) — 从3张随机能力牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。 | 价格: 49g\r\n  [13] ENERGY_POTION (Common) — 获得{Energy:energyIcons()}。 | 价格: 52g\r\n\r\n  [14] 移除一张牌 | 价格: 75g\r\n\r\n  [15] 离开商店（不再购买）\r\n\r\n你可以购买多件物品。每件写 BUY \u003c编号\u003e，最后单独写 LEAVE。\r\nExample:\r\n  BUY 3\r\n  BUY 7\r\n  LEAVE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "BUY 14\nBUY 13\nLEAVE\n\n优先移除打击（75g），牌组精简到12张效率更高。能量药水（52g）与Whirlwind完美配合——精英战中多2能量意味着Whirlwind打5次共25点群伤，爆发力极强。总计花127g，留40g以备后用。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从你的牌组中选择 1 张牌移除（例如遗物或事件效果）：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [7] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [8] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [9] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n  [10] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [11] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [12] HEADBUTT (Attack, 1 能量) — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [13] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [14] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [15] MOLTEN_FIST (Attack, 1 能量) — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n移除打击，牌组精简到14张。打击是效率最低的攻击牌，有Headbutt(9伤)、Whirlwind、Molten Fist(10伤)等更优选择，再减一张打击让关键牌出现概率更高。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第6行, 第2列\r\n生命值: 73/80 | 金币: 40\r\n可选的下一个房间：\r\n  [1] Monster (row 7, col 1)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n唯一选择，继续前进。路线通往(8,0)精英或(8,2)怪物，为精英战做准备。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 9 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n  [P2] ENERGY_POTION — 获得2能量。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 25/25 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。)\r\n       意图: 攻击 6\r\n  [B] CORPSE_SLUG — HP: 26/26 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。)\r\n       意图: 攻击 8\r\n  [C] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\n\n先打Battle Trance（0能量）抽3张牌，扩大手牌选项。14点来袭伤害（6+8），需要看抽到什么再平衡攻防。由于Ravenous能力，如果能击杀一只蛞蝓，其他蛞蝓会被击晕且跳过行动，这是理想目标。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [7] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 6 | 弃牌堆: 1\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n  [P2] ENERGY_POTION — 获得2能量。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 25/25 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。)\r\n       意图: 攻击 6\r\n  [B] CORPSE_SLUG — HP: 26/26 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。)\r\n       意图: 攻击 8\r\n  [C] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "POTION P2\nPLAY 5 -\u003e A\nPLAY 1 -\u003e A\nPLAY 3 -\u003e A\nPLAY 7 -\u003e A\nEND_TURN\n\n使用能量药水获得5能量总计。Headbutt(9) + Strike(6) + Strike(6) + Strike(6) = 27伤害，击杀A(25HP)。A死亡后B和C因Ravenous被击晕，本回合不会受到任何伤害！虽然B和C各获得1力量，但省下14点伤害极为划算。能量药水换14HP+加速战斗，很值得。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 2 | 弃牌堆: 7\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 26/26 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 12\r\n  [B] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\n\n先Shrug It Off获得8格挡+抽1牌。A攻击12需要更多格挡，同时保留2能量和Battle Trance的选项。看抽到什么再决定下一步。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 8 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [3] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 1 | 弃牌堆: 8\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 26/26 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 12\r\n  [B] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\n\nBattle Trance（0能量）抽3张牌。抽牌堆1张+弃牌堆洗入后再抽2张，总共获得3张额外手牌。NoDrawPower这回合无所谓，没有其他抽牌效果了。2能量配合更大手牌可以做出更好的攻防决策。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 8 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [6] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [7] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 6 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 26/26 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 12\r\n  [B] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\nPLAY 2 -\u003e A\nEND_TURN\n\n防御(5) + 已有8格挡 = 13格挡，完美覆盖A的12点攻击。Molten Fist 10伤打A（26→16），虽然没有易伤可翻倍，但1能量10伤害效率极高且自动消耗精简牌组。B只是debuff不造成伤害。集火A尽快击杀，利用Ravenous击晕B。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: FrailPower(2: 脆弱时，从卡牌中获得的格挡值减少25%。)\r\n\r\n手牌：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得6点格挡。\n抽1张牌。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 1 | 弃牌堆: 7\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 16/26 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: Debuff\r\n  [B] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 14\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nPLAY 3 -\u003e A\nPLAY 5 -\u003e A\nEND_TURN\n\nHeadbutt(9) + Strike(6) + Strike(6) = 21伤害，击杀A(16HP)。B因Ravenous吃掉尸体被击晕，本回合不会造成14点伤害！完美规避所有伤害，虽然B获得额外1力量，但省下14HP远超值得。脆弱状态下防御效率很差，全力输出触发击晕才是正解。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [6] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n  [7] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 3\n\n把Whirlwind放到牌顶。下回合必定抽到，3能量对B打15点伤害。B有27HP和5力量，需要尽快击杀。Whirlwind是最高效的能量转化伤害牌。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: FrailPower(1: 脆弱时，从卡牌中获得的格挡值减少25%。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [4] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n抽牌堆: 8 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] WEAK_POTION [目标: 单体敌人] — 给予3层虚弱。\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(8: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 22\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "POTION P1 -\u003e A\nPLAY 3\n\n先用虚弱药水将22点攻击降低25%到约16点。然后Battle Trance（0能量）抽3张牌，在保留3能量的同时最大化手牌选项。8力量的敌人极度危险，必须尽快击杀。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 73/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: FrailPower(1: 脆弱时，从卡牌中获得的格挡值减少25%。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n  [6] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [7] SHRUG_IT_OFF (Skill, 1 能量) — 获得6点格挡。\n抽1张牌。\r\n抽牌堆: 5 | 弃牌堆: 1\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 27/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(8: 力量会增加攻击牌造成的伤害。), WeakPower(3: 虚弱的生物造成的攻击伤害减少25%。)\r\n       意图: 攻击 16\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3 -\u003e A\nPLAY 2 -\u003e A\nPLAY 7\nEND_TURN\n\nHeadbutt(9) + Strike(6) = 15伤害，敌人降到12HP。Shrug It Off获得6格挡（脆弱减25%），将16点攻击减到10点实际伤害。平衡攻防，73-10=63HP，下回合轻松终结12HP的敌人。全Whirlwind虽然同样15伤但要吃满16点，不如这样更高效。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 63/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 1 | 弃牌堆: 7\r\n\r\n敌人：\r\n  [A] CORPSE_SLUG — HP: 12/27 | Block: 0 | 能力: RavenousPower(4: 当有敌人死亡时，噬尸蛞蝓会立即吃下尸体，在本回合被击晕然后获得1点力量。), StrengthPower(8: 力量会增加攻击牌造成的伤害。), WeakPower(2: 虚弱的生物造成的攻击伤害减少25%。)\r\n       意图: 攻击 12\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\n两张打击(6+6=12)精确击杀12HP的敌人。战斗结束，燃血回复6点HP。不需要防御，省下能量也没意义。干脆利落终结战斗。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (20g)\r\n  [TAKE 2] 药水: FYSH_OIL — 获得{StrengthPower}点力量和{DexterityPower}点敏捷。\r\n  [TAKE 3] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 3 的卡牌选项（选一张，或跳过）：\r\n  Card 1: HEADBUTT (Attack, 1 能量, Common) — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  Card 2: JUGGLING (Power, 1 能量, Uncommon) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n  Card 3: TEAR_ASUNDER (Attack, 2 能量, Rare) — 造成5点伤害。\n在本场战斗中，你每失去过一次生命值，这张牌就额外造成一次伤害。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nTAKE 2\nCARD 2\nDONE\n\nJuggling是极强的能力牌——每回合第3张攻击牌自动复制到手牌中。我们牌组攻击牌多（打击、Headbutt、Bash、Whirlwind），配合Battle Trance的大量抽牌很容易每回合打出3+攻击牌，免费复制高价值攻击牌（如Headbutt）。Fish Oil药水留给精英战，力量+敏捷的一次性增益很实用。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第7行, 第1列\r\n生命值: 69/80 | 金币: 60\r\n可选的下一个房间：\r\n  [1] Elite (row 8, col 0)\r\n  [2] Monster (row 8, col 2)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n69/80血量充足，有Fish Oil药水（力量+敏捷增益）为精英战提供额外战力。精英战后接(9,0)宝箱房，有机会连续获得2个遗物，大幅加强牌组。Juggling刚入手，配合攻击密集的牌组在精英战中能发挥作用。牌组有Whirlwind、Headbutt、Battle Trance等核心牌，战斗力已经不错。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 69/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n\r\n手牌：\r\n  [1] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [3] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 10 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] FYSH_OIL — 获得1点力量和1点敏捷。\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 140/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。)\r\n       意图: 攻击 17\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "POTION P1\nPLAY 2 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\n使用Fysh Oil获得+1力量+1敏捷（全场生效）。Bash(9伤害+2易伤) -\u003e Molten Fist在易伤加成下造成约16伤害，然后将易伤从2翻倍到4层！总计约25伤害，敌人降到115HP并带4层易伤。虽然吃17伤害（69→52），但4层易伤为后续每回合提供巨大输出加成。ShriekPower在70HP以下时会击晕敌人，给我们一个免费回合。这个易伤setup极大加速击杀。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 52/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [3] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n抽牌堆: 5 | 弃牌堆: 4\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 115/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。), VulnerablePower(3: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 9 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\n\n先Shrug It Off获得9格挡（完美覆盖9点攻击）+抽1牌，看看能抽到什么攻击牌。然后打Juggling建立持续复制攻击的能力，剩余1能量用于输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 52/80 | 格挡: 9 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [3] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n抽牌堆: 4 | 弃牌堆: 5\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 115/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。), VulnerablePower(3: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 9 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\nPLAY 5 -\u003e A\nEND_TURN\n\n先打Juggling（1能量）建立持续价值——后续每回合第3张攻击牌免费复制。然后Headbutt（1能量）对易伤敌人造成15点伤害（10×1.5），敌人降到100HP。9格挡完美覆盖9点攻击。Headbutt还能从弃牌堆检索关键牌放到牌顶。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] BASH (Attack, 2 能量) — 造成9点伤害。\n给予2层易伤。\r\n  [2] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 2\n\n把Whirlwind放到牌顶。下回合抽到Whirlwind，配合3能量+1力量+易伤加成，每次打击造成(5+1)×1.5=9伤害，3次共27点。这是单卡最高输出，配合其他攻击牌可以快速推过70HP触发击晕。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 52/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成6点伤害X次。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 0 | 弃牌堆: 8\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 100/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。), VulnerablePower(2: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: 攻击 24\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\n\n先Shrug It Off获得9格挡+抽1牌（洗入弃牌堆后抽），然后看手牌情况。敌人24点攻击非常猛，需要平衡攻防。100HP敌人需要降到70以下触发击晕，需要30+伤害，这回合可能不够，但要尽量输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 52/80 | 格挡: 9 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成6点伤害X次。\r\n  [2] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n抽牌堆: 7 | 弃牌堆: 1\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 100/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。), VulnerablePower(2: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: 攻击 24\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\nPLAY 4\nEND_TURN\n\n全防御回合。9+6+6=21格挡，只吃3点伤害（24-21=3）。\n\n理由：24点攻击太猛（含Vigor+7），这回合不适合冒险输出。Whirlwind留到下回合3能量使用，配合易伤（还有1回合）打27点群伤，加上其他攻击牌可以推到70HP以下触发击晕。Vigor是一次性增益，这回合消耗掉后下回合攻击会低很多。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 49/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成9点伤害。\n给予2层易伤。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n抽牌堆: 2 | 弃牌堆: 6\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 100/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。), VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 9 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nPLAY 2 -\u003e A\nEND_TURN\n\nBash(9×1.5=13) + Strike(7×1.5=10) = 23点伤害，敌人降到77HP，且刷新2层易伤。吃9点伤害(49→40)，但这非常关键——下回合Whirlwind配合3能量+力量+易伤，可以打(6×1.5)×3=27伤害，77-27=50HP，直接触发70HP击晕！保持易伤是持续输出的关键。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n抽牌堆: 8 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 77/140 | Block: 0 | 能力: ShriekPower(70: 这个生物的生命值第一次降到50%或以下时，会被击晕。), VulnerablePower(2: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: 攻击 24\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1 -\u003e A\n\nHeadbutt造成15伤害（10×1.5易伤），敌人77→62HP，低于70HP阈值触发ShriekPower击晕！24点攻击被取消！然后继续输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n抽牌堆: 8 | 弃牌堆: 1\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 62/140 | Block: 0 | 能力: VulnerablePower(2: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: Stun\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\n\n敌人被击晕！免费回合。先Shrug It Off抽1牌（格挡无所谓），看能不能抽到攻击牌最大化输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 9 | 能量: 1/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 7 | 弃牌堆: 2\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 62/140 | Block: 0 | 能力: VulnerablePower(2: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: Stun\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3 -\u003e A\nEND_TURN\n\n敌人被击晕，1能量打Strike。易伤下造成10点伤害（7×1.5），敌人62→52HP。只有1能量没有更好选择，防御在击晕回合浪费。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成9点伤害。\n给予2层易伤。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 2 | 弃牌堆: 6\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 52/140 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\n\n敌人做Debuff不攻击，免费输出回合！Battle Trance（0能量）抽3张牌，抽牌堆2张+洗入弃牌后再抽1张，可能拿到Whirlwind和Headbutt等关键攻击牌。3能量全部用于进攻。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成9点伤害。\n给予2层易伤。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [3] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成6点伤害X次。\r\n  [6] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [7] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n抽牌堆: 5 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 52/140 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。), VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: Debuff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 7 -\u003e A\nPLAY 2 -\u003e A\nPLAY 6 -\u003e A\nEND_TURN\n\n全力输出！敌人不攻击。Headbutt(15) + Strike(10) + Strike(10) = 35伤害（全部×1.5易伤），敌人52→17HP。第3张攻击触发Juggling复制一张Strike到手牌，但没能量用了。下回合轻松终结17HP。Headbutt还能检索关键牌到牌顶。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), VulnerablePower(99: 易伤的生物从攻击中受到的伤害增加50%。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 1 | 弃牌堆: 8\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 17/140 | Block: 0 | 能力: VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: 攻击 36\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\n\n必须先Battle Trance抽3张牌！我有99层易伤，36×1.5=54伤害会直接杀死我（40HP）。17HP的敌人用手上的Strike（7伤）杀不死，需要更多攻击牌。抽牌后应该能拿到Headbutt/Whirlwind/Bash等足够输出击杀。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。)\r\n你的能力: StrengthPower(1: 力量会增加攻击牌造成的伤害。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), VulnerablePower(99: 易伤的生物从攻击中受到的伤害增加50%。)\r\n\r\n手牌：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [7] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成9点伤害。\n给予2层易伤。\r\n抽牌堆: 6 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] TERROR_EEL — HP: 17/140 | Block: 0 | 能力: VigorPower(7: 你的下一张攻击牌伤害增加。)\r\n       意图: 攻击 36\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 7 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\nBash(9) 先打并给2层易伤，然后Strike在易伤加成下造成10点(7×1.5)，总计19伤害 \u003e 17HP，击杀敌人！避免了54点致命伤害（36×1.5因我99层易伤）。完美终结精英战。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (39g)\r\n  [TAKE 2] 药水: COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n  [TAKE 3] 药水腰带\r\n  [TAKE 4] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 4 的卡牌选项（选一张，或跳过）：\r\n  Card 1: ASHEN_STRIKE (Attack, 1 能量, Uncommon) — 造成6点伤害。\n你的消耗牌堆中每有一张牌，伤害增加3。\r\n  Card 2: STAMPEDE (Power, 2 能量, Uncommon) — 在你的回合结束时，随机打出你手牌中的1张攻击牌攻击随机敌人。\r\n  Card 3: BLOOD_WALL (Skill, 2 能量, Common) — 失去2点生命。\n获得16点格挡。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nTAKE 2\nTAKE 3\nDONE\n\n拿金币、无色药水和药水腰带（增加药水槽位）。药水腰带作为遗物是永久提升，更多药水槽位意味着能储备更多药水应对Boss战。\n\n卡牌全部跳过——牌组已经很精简高效（13张），这三张牌都没有足够吸引力。Ashen Strike需要消耗堆叠但我们消耗源有限，Stampede 2能量太贵且随机，Blood Wall耗血耗能。保持牌组精简是更优选择。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第8行, 第0列\r\n生命值: 46/80 | 金币: 99\r\n可选的下一个房间：\r\n  [1] Treasure (row 9, col 0)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n宝箱房！精英战后的遗物奖励，完美。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第9行, 第0列\r\n生命值: 46/80 | 金币: 143\r\n可选的下一个房间：\r\n  [1] RestSite (row 10, col 0)\r\n  [2] Monster (row 10, col 1)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n46/80（57.5%）血量低于60%阈值，需要休息恢复。前面还有多层怪物和可能的精英战要打，必须保证足够血量生存到Boss。休息回复约24HP（30%最大生命），回到70/80安全线。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 休息点 ===\r\nHP: 46/80\r\n可选操作：\r\n  [1] HealRestSiteOption\r\n  [2] SmithRestSiteOption\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n46/80血量偏低，休息回复约24HP到70/80。牌组已经很精简高效，升级虽好但生存优先。接下来还有多层战斗要打，必须有足够血量。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第10行, 第0列\r\n生命值: 80/80 | 金币: 143\r\n可选的下一个房间：\r\n  [1] Monster (row 11, col 0)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n唯一选择，满血前进，状态良好。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 80/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n抽牌堆: 10 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] SEWER_CLAM — HP: 56/56 | Block: 8 | 能力: PlatingPower(8: 在你的回合结束时获得格挡。覆甲会在你的回合开始时减少1层。)\r\n       意图: 攻击 10\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\n\n先Shrug It Off获得8格挡+抽1牌。8格挡覆盖大部分10点攻击（仅吃2），看抽到什么再决定2能量怎么分配攻击。敌人有8覆甲每回合给格挡，需要穿透伤害，抽到Bash或Whirlwind会很好。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 80/80 | 格挡: 8 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [5] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n抽牌堆: 9 | 弃牌堆: 1\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] SEWER_CLAM — HP: 56/56 | Block: 8 | 能力: PlatingPower(8: 在你的回合结束时获得格挡。覆甲会在你的回合开始时减少1层。)\r\n       意图: 攻击 10\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nHeadbutt(9)破掉8格挡后穿透1点HP，然后Strike(6)直接打到HP上，总共7点实际伤害，敌人56→49HP。8格挡足够承受大部分10点攻击（仅吃2点）。存Battle Trance到下回合配合3能量使用效率更高。Headbutt还能检索关键牌到牌顶。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 78/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n抽牌堆: 5 | 弃牌堆: 5\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] SEWER_CLAM — HP: 49/56 | Block: 8 | 能力: PlatingPower(7: 在你的回合结束时获得格挡。覆甲会在你的回合开始时减少1层。)\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\nPLAY 3\nEND_TURN\n\n敌人做Buff不攻击，完美设置回合。Juggling（1能量）建立持续复制攻击牌的能力。然后Whirlwind（2能量）= 5×2 = 10伤害，穿过8格挡打2点到HP，敌人49→47。Juggling后续每回合第3张攻击牌免费复制，对长期战斗价值巨大。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 78/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n抽牌堆: 0 | 弃牌堆: 9\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] SEWER_CLAM — HP: 47/56 | Block: 7 | 能力: PlatingPower(6: 在你的回合结束时获得格挡。覆甲会在你的回合开始时减少1层。), StrengthPower(4: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 14\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nBash(8)破掉7格挡+1点HP伤害，敌人47→46，给2层易伤。然后Molten Fist在易伤下造成15点伤害（10×1.5），敌人46→31，且将2层易伤翻倍到4层！Molten Fist消耗后牌组更精简。\n\n吃14点伤害（78→64），但4层易伤让接下来几回合输出暴增，能快速击杀避免敌人继续叠力量。这是值得的交换。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 64/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] WHIRLWIND (Attack, 2 能量) — 对所有敌人造成5点伤害X次。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 8 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] SEWER_CLAM — HP: 31/56 | Block: 6 | 能力: PlatingPower(5: 在你的回合结束时获得格挡。覆甲会在你的回合开始时减少1层。), StrengthPower(4: 力量会增加攻击牌造成的伤害。), VulnerablePower(3: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5 -\u003e A\nPLAY 4\nEND_TURN\n\n敌人做Buff不攻击，全力输出！Strike先破6格挡（9-6=3HP伤害），然后Whirlwind 2能量打2次，每次7伤害（5×1.5易伤），共14HP伤害。总计17HP伤害，敌人31→14HP。下回合应该能终结。不需要防御，两张攻击牌还没触发Juggling但伤害效率最高。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 64/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [2] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 3 | 弃牌堆: 5\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] SEWER_CLAM — HP: 14/56 | Block: 5 | 能力: PlatingPower(4: 在你的回合结束时获得格挡。覆甲会在你的回合开始时减少1层。), StrengthPower(8: 力量会增加攻击牌造成的伤害。), VulnerablePower(2: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 18\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\nHeadbutt(13伤害=9×1.5易伤)破5格挡穿透8HP，敌人14→6。Strike(9伤害=6×1.5易伤)直接击杀。2能量终结战斗，不需要防御。燃血回6HP到70/80。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) — 造成9点伤害。\r\n  [2] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [3] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 2\n\n战斗已经结束，Headbutt的检索效果不影响结果。选Whirlwind放到牌顶无所谓了。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (17g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BLOOD_WALL (Skill, 2 能量, Common) — 失去2点生命。\n获得16点格挡。\r\n  Card 2: THUNDERCLAP (Attack, 1 能量, Common) — 对所有敌人造成4点伤害，给予1层易伤。\r\n  Card 3: TWIN_STRIKE (Attack, 1 能量, Common) — 造成5点伤害两次。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 3\nDONE\n\nTwin Strike非常适合当前牌组。1能量10点伤害（5×2），效率远超打击（6点）。双重命中双重吃力量加成（+1力量=+2额外伤害）和易伤加成（15伤害），配合Juggling作为第3张攻击牌时还能复制，价值极高。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第11行, 第0列\r\n生命值: 70/80 | 金币: 160\r\n可选的下一个房间：\r\n  [1] Monster (row 12, col 0)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n唯一选择，继续前进。70/80血量状态良好。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 70/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成5点伤害两次。\r\n  [2] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [3] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 11 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] FOSSIL_STALKER — HP: 53/53 | Block: 0 | 能力: SuckPower(3: 这个生物每次造成未被格挡的伤害时，都会获得1点力量。)\r\n       意图: 攻击 12\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\nPLAY 1 -\u003e A\nPLAY 5 -\u003e A\nEND_TURN\n\nJuggling先上（1能量），然后Twin Strike(10) + Strike(6) = 16伤害，敌人53→37。恰好3张攻击牌触发Juggling复制！SuckPower很危险（未格挡伤害给力量），但5格挡挡不住12点，不如全力输出速杀。Juggling在后续回合提供免费攻击牌价值巨大。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 58/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [3] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n抽牌堆: 6 | 弃牌堆: 4\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] FOSSIL_STALKER — HP: 37/53 | Block: 0 | 能力: SuckPower(3: 这个生物每次造成未被格挡的伤害时，都会获得1点力量。), StrengthPower(3: 力量会增加攻击牌造成的伤害。)\r\n       意图: 攻击 12\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nBash(8伤害+2易伤) → Molten Fist(10×1.5=15伤害，翻倍到4层易伤) = 总计23伤害，敌人37→14HP。吃12点伤害（58→46）不理想，但SuckPower意味着必须速杀——每次未格挡伤害给1力量，拖延越久越致命。14HP+4层易伤，下回合随便几张牌就能终结。Molten Fist消耗后牌组更精简。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 46/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n抽牌堆: 1 | 弃牌堆: 8\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] FOSSIL_STALKER — HP: 14/53 | Block: 0 | 能力: SuckPower(3: 这个生物每次造成未被格挡的伤害时，都会获得1点力量。), StrengthPower(9: 力量会增加攻击牌造成的伤害。), VulnerablePower(3: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 21\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5 -\u003e A\nPLAY 3 -\u003e A\nEND_TURN\n\nHeadbutt(13=9×1.5易伤) + Strike(9=6×1.5易伤) = 22伤害，轻松击杀14HP敌人。2能量搞定，避免21点致命攻击。燃血回6HP到52/80。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] TWIN_STRIKE (Attack, 1 能量) — 造成5点伤害两次。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [3] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] BASH (Attack, 2 能量) — 造成8点伤害。\n给予2层易伤。\r\n  [6] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [7] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [8] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 3\n\n战斗已结束，Headbutt检索效果无实际影响。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (14g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BREAKTHROUGH (Attack, 1 能量, Common) — 失去1点生命。\n对所有敌人造成9点伤害。\r\n  Card 2: ARMAMENTS (Skill, 1 能量, Common) — 获得5点格挡。\n升级你手牌中的一张牌。\r\n  Card 3: BLOODLETTING (Skill, 0 能量, Common) — 失去3点生命。\n获得2能量。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 3\nDONE\n\nBloodletting是Whirlwind牌组的梦幻搭档！0能量失去3HP换2能量，配合Whirlwind意味着多打2次（每次5+伤害×1.5易伤），在群体战和Boss战中爆发力惊人。牌组已经有Battle Trance和Juggling加速循环，Bloodletting进一步提升能量上限。Armaments不错但不如这个直接提升爆发。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第12行, 第0列\r\n生命值: 52/80 | 金币: 174\r\n可选的下一个房间：\r\n  [1] Monster (row 13, col 0)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n唯一选择，继续前进。52/80血量还行，有燃血回复。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 52/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n抽牌堆: 12 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] TWO_TAILED_RAT — HP: 18/18 | Block: 0\r\n       意图: Debuff\r\n  [B] TWO_TAILED_RAT — HP: 20/20 | Block: 0\r\n       意图: 攻击 8\r\n  [C] TWO_TAILED_RAT — HP: 17/17 | Block: 0\r\n       意图: 攻击 6\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\n\nBattle Trance（0能量）抽3张牌。三只低HP老鼠，希望抽到Whirlwind进行AoE清场。3能量+7张手牌应该能高效处理多个目标。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 52/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n  [6] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [7] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 9 | 弃牌堆: 1\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] TWO_TAILED_RAT — HP: 18/18 | Block: 0\r\n       意图: Debuff\r\n  [B] TWO_TAILED_RAT — HP: 20/20 | Block: 0\r\n       意图: 攻击 8\r\n  [C] TWO_TAILED_RAT — HP: 17/17 | Block: 0\r\n       意图: 攻击 6\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1 -\u003e B\nPLAY 3 -\u003e B\nPLAY 4 -\u003e B\nEND_TURN\n\nHeadbutt(9) + Strike(6) + Strike(6) = 21伤害，击杀B(20HP)。B打8伤最高，优先消灭。只吃C的6伤（52→46），A是debuff不攻击。Headbutt还能检索Whirlwind到牌顶，下回合AoE清理剩余两只老鼠。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 46/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: FrailPower(1: 脆弱时，从卡牌中获得的格挡值减少25%。)\r\n\r\n手牌：\r\n  [1] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [2] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n  [4] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n抽牌堆: 5 | 弃牌堆: 7\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] TWO_TAILED_RAT — HP: 18/18 | Block: 0\r\n       意图: 攻击 6\r\n  [B] TWO_TAILED_RAT — HP: 17/17 | Block: 0\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\n\nBattle Trance（0能量）抽3张牌。14点伤害来袭（6+8），需要看看能否抽到Whirlwind或Twin Strike来高效清场。手中还有Bloodletting可以额外获得2能量配合输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 46/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: FrailPower(1: 脆弱时，从卡牌中获得的格挡值减少25%。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n  [3] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n  [5] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [6] SHRUG_IT_OFF (Skill, 1 能量) — 获得6点格挡。\n抽1张牌。\r\n  [7] DEFEND_IRONCLAD (Skill, 1 能量) — 获得3点格挡。\r\n抽牌堆: 2 | 弃牌堆: 8\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] TWO_TAILED_RAT — HP: 18/18 | Block: 0\r\n       意图: 攻击 6\r\n  [B] TWO_TAILED_RAT — HP: 17/17 | Block: 0\r\n       意图: 攻击 8\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\nPLAY 5\nEND_TURN\n\nBloodletting（0能量，失去3HP获得2能量）→ Whirlwind（5能量）= 5次×5伤害 = 25点群伤，两只老鼠（18HP和17HP）全部击杀！花3HP避免14点伤害，净赚11HP+燃血回6HP。Bloodletting + Whirlwind组合完美展现！"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (14g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BLOOD_WALL (Skill, 2 能量, Common) — 失去2点生命。\n获得16点格挡。\r\n  Card 2: FIGHT_ME (Attack, 2 能量, Uncommon) — 造成5点伤害两次。\n获得2点力量。\n该敌人获得1点力量。\r\n  Card 3: RUPTURE (Power, 1 能量, Uncommon) — 每当你在你的回合失去生命值时, 获得1点力量。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 3\nDONE\n\nRupture与当前牌组完美联动！Bloodletting每次使用失去3HP，触发Rupture获得+1力量。这创造了一个强力引擎：Bloodletting提供能量给Whirlwind，同时Rupture把HP损失转化为永久力量加成。力量加成让Whirlwind每次命中都更强（+1力量×5次=+5总伤害），Twin Strike双重受益。这是卡组的核心升级！"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第13行, 第0列\r\n生命值: 49/80 | 金币: 188\r\n可选的下一个房间：\r\n  [1] Monster (row 14, col 0)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n唯一选择，继续前进。49/80血量还可以，有燃血+Regal Pillow在休息站能大量回复。接近Boss层了，第15行全是休息站。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 49/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 13 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] CALCIFIED_CULTIST — HP: 38/38 | Block: 0\r\n       意图: Buff\r\n  [B] TOADPOLE — HP: 24/24 | Block: 0\r\n       意图: 攻击 7\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nBash(8) + Headbutt(9) = 17伤害打A，降到21HP并给2层易伤。邪教徒类敌人Buff会持续叠力量，必须优先击杀。吃7点B的攻击（49→42）可以接受。下回合易伤加成可以快速终结A（21HP×1.5倍伤害），然后再处理B。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 42/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [5] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n抽牌堆: 9 | 弃牌堆: 4\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] CALCIFIED_CULTIST — HP: 17/38 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。), RitualPower(2: 在你的回合结束时获得力量。)\r\n       意图: 攻击 9\r\n  [B] TOADPOLE — HP: 24/24 | Block: 0\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nStrike(9=6×1.5易伤) + Bash(12=8×1.5易伤) = 21伤害，击杀A(17HP)。A是Ritual邪教徒，每回合叠力量，必须立即消灭。B只做Buff不攻击，本回合0伤害。完美清除最大威胁。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 42/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成5点伤害两次。\r\n  [2] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 4 | 弃牌堆: 9\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] TOADPOLE — HP: 24/24 | Block: 0 | 能力: ThornsPower(2: 当被攻击命中时，反击造成伤害。)\r\n       意图: 攻击 9\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\n\nBattle Trance（0能量）抽3张牌。蟾蜍有2荆棘，每次攻击命中扣2HP，需要找到高效单次命中的攻击方式。希望抽到Whirlwind或Headbutt。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 42/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成5点伤害两次。\r\n  [2] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [6] RUPTURE (Power, 1 能量) — 每当你在你的回合失去生命值时, 获得1点力量。\r\n  [7] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n抽牌堆: 1 | 弃牌堆: 10\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] TOADPOLE — HP: 24/24 | Block: 0 | 能力: ThornsPower(2: 当被攻击命中时，反击造成伤害。)\r\n       意图: 攻击 9\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\nPLAY 7\nEND_TURN\n\nBloodletting（0能量，-3HP获得2能量）→ Whirlwind（5能量）= 5×5 = 25点伤害，击杀24HP蟾蜍！虽然荆棘反伤5×2=10HP + Bloodletting 3HP = 共13HP自伤（42→29），但燃血回6到35HP。一回合干净终结，避免吃9点攻击+多回合荆棘累积。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 奖励 ===\r\n你可以领取多个奖励，可选项：\r\n  [TAKE 1] 金币 (12g)\r\n  [TAKE 2] 卡牌奖励（从下方选择一张，或跳过）\r\n\r\n奖励 2 的卡牌选项（选一张，或跳过）：\r\n  Card 1: BLOODLETTING (Skill, 0 能量, Common) — 失去3点生命。\n获得2能量。\r\n  Card 2: SWORD_BOOMERANG (Attack, 1 能量, Common) — 随机对敌人造成3点伤害3次。\r\n  Card 3: TWIN_STRIKE (Attack, 1 能量, Common) — 造成5点伤害两次。\r\n\r\n请用 TAKE 命令领取，最后写 DONE：\r\n  TAKE \u003c编号\u003e — 领取奖励（金币、药水等）\r\n  CARD \u003c编号\u003e — 选择一张卡牌奖励（不选则跳过）\r\n  DONE — 前往下一个房间\r\n示例: TAKE 1 / CARD 2 / DONE\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "TAKE 1\nCARD 1\nDONE\n\n第二张Bloodletting！与Rupture+Whirlwind组合天作之合。两张Bloodletting在同一回合=+4能量给Whirlwind（共7能量=35点群伤）+触发Rupture两次获得+2力量。这是指数级的爆发增强。0能量不占回合节奏，牌组核心联动更稳定。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第14行, 第0列\r\n生命值: 35/80 | 金币: 200\r\n可选的下一个房间：\r\n  [1] RestSite (row 15, col 1)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\nBoss前最后一个休息站。35/80血量必须休息，Regal Pillow额外回复15HP，总共恢复约39HP到74/80，确保Boss战有足够血量。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 休息点 ===\r\nHP: 35/80\r\n可选操作：\r\n  [1] HealRestSiteOption\r\n  [2] SmithRestSiteOption\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n35/80血量在Boss前必须休息。Regal Pillow额外+15HP，总恢复24+15=39HP，回到74/80。虽然升级Bash或Whirlwind很诱人，但死了什么都没有。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 地图 — 选择下一个房间 ===\r\n当前位置: 第15行, 第1列\r\n生命值: 74/80 | 金币: 200\r\n可选的下一个房间：\r\n  [1] Boss (row 16, col 3)\r\n\r\n请回复 CHOOSE \u003c编号\u003e。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\nBoss战！牌组状态极强：\n- Rupture + 2×Bloodletting = 每轮+2力量引擎\n- Bloodletting提供额外能量给Whirlwind爆发\n- Battle Trance + Juggling加速循环\n- 74/80血量充足，还有无色药水备用\n\n让我们去打Boss！"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 74/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] RUPTURE (Power, 1 能量) — 每当你在你的回合失去生命值时, 获得1点力量。\r\n  [3] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [4] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [5] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成8点伤害。\n给予2层易伤。\r\n抽牌堆: 14 | 弃牌堆: 0\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 250/250 | Block: 0\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\nPLAY 3\nPLAY 4\n\n完美设置回合！Boss在Buff不攻击。\n1. Rupture（1能量）建立力量引擎\n2. Bloodletting（0能量）失去3HP获得2能量，触发Rupture获得+1力量\n3. Battle Trance（0能量）抽3张牌——现在有4能量+1力量，看抽到什么全力输出"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 71/80 | 格挡: 0 | 能量: 4/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(1: 力量会增加攻击牌造成的伤害。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [2] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成9点伤害。\n给予2层易伤。\r\n  [3] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n抽牌堆: 11 | 弃牌堆: 2\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 250/250 | Block: 0\r\n       意图: Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\nPLAY 2 -\u003e A\nEND_TURN\n\nBoss在Buff不攻击，继续贪。Bloodletting（-3HP获得+2能量+触发Rupture再+1力量=总计+2力量）。然后Bash（10伤害=8+2力量）给2层易伤。虽然剩余能量浪费了（只有防御牌），但建立了+2力量+2易伤的攻击基础，Boss不攻击所以防御无用。68HP安全。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 68/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(2: 力量会增加攻击牌造成的伤害。)\r\n\r\n手牌：\r\n  [1] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成8点伤害。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [3] JUGGLING (Power, 1 能量) — 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [5] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成7点伤害两次。\r\n抽牌堆: 6 | 弃牌堆: 7\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 240/250 | Block: 0 | 能力: VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。), SteamEruptionPower(15: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 15 + Debuff + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\nPLAY 5 -\u003e A\nPLAY 1 -\u003e A\nEND_TURN\n\nJuggling（1能量）建立持续复制引擎。Twin Strike（1能量）在易伤+2力量下造成20伤害（(5+2)×1.5=10×2），Strike（1能量）造成12伤害（(6+2)×1.5=12）。总计32伤害，Boss 240→208。吃15伤害（68→53），但Juggling长期价值对250HP Boss不可或缺。两张攻击没触发Juggling的第3张复制，但下回合起每回合都有免费攻击牌。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 53/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(2: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), WeakPower(1: 虚弱的生物造成的攻击伤害减少25%。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] MOLTEN_FIST (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害。\n将该敌人身上的易伤层数翻倍。\n消耗。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成6点伤害。\r\n  [4] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成8点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n抽牌堆: 1 | 弃牌堆: 11\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 208/250 | Block: 0 | 能力: SteamEruptionPower(18: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 10 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2 -\u003e A\nPLAY 3 -\u003e A\nPLAY 4 -\u003e A\n\nMolten Fist(9) + Strike(6) + Headbutt(8) = 23伤害，Boss 208→185。Boss无易伤所以Molten Fist翻倍无效，但仍是9伤害+消耗精简牌组。第3张攻击(Headbutt)触发Juggling复制。Headbutt检索Bloodletting到牌顶，下回合Rupture引擎继续叠力量。吃10伤害（53→43）可接受。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [2] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [3] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [4] BASH (Attack, 2 能量) — 造成10点伤害。\n给予2层易伤。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [7] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [8] TWIN_STRIKE (Attack, 1 能量) — 造成10点伤害两次。\r\n  [9] STRIKE_IRONCLAD (Attack, 1 能量) — 造成12点伤害。\r\n  [10] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [11] SHRUG_IT_OFF (Skill, 1 能量) — 获得8点格挡。\n抽1张牌。\r\n  [12] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\n把Bloodletting放到牌顶。下回合抽到Bloodletting，触发Rupture获得+1力量（总计+3），还获得2额外能量给Whirlwind。Rupture引擎是击杀250HP Boss的关键，必须持续叠力量。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 53/80 | 格挡: 0 | 能量: 0/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(2: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), WeakPower(1: 虚弱的生物造成的攻击伤害减少25%。)\r\n\r\n手牌：\r\n  [1] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成5点伤害X次。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) (无法打出) — 获得5点格挡。\r\n  [3] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] (无法打出) — 造成8点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n抽牌堆: 2 | 弃牌堆: 12\r\n\r\n药水：\r\n  [P1] COLORLESS_POTION — 从3张随机无色牌中选择1张加入你的手牌。这张牌在本回合可以免费打出。\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 185/250 | Block: 0 | 能力: SteamEruptionPower(18: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 10 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "POTION P1\nEND_TURN\n\n0能量回合，几乎无法操作。用无色药水碰碰运气——免费获得一张随机无色牌可以免费打出，可能有意外收获。Whirlwind X=0无伤害不值得打。吃10伤害（53→43），下回合Bloodletting在牌顶，Rupture引擎启动。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] PROWESS (Power, 1 能量) — 获得1点力量。\n获得1点敏捷。\r\n  [2] ETERNAL_ARMOR (Power, 3 能量) — 获得7层覆甲。\r\n  [3] SECRET_WEAPON (Skill, 0 能量) — 从抽牌堆中选择一张攻击牌放入你的手牌。\n消耗。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\nProwess免费打出！+1力量+1敏捷，永久增益。力量升到3点，每次攻击额外+3伤害，对250HP Boss极为重要。敏捷+1让所有防御牌额外+1格挡。Secret Weapon虽能检索攻击但0能量打不出，Eternal Armor需要3能量根本用不了。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 43/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(2: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。)\r\n\r\n手牌：\r\n  [1] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成8点伤害。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [4] PROWESS (Power, 1 能量) — 获得1点力量。\n获得1点敏捷。\r\n  [5] WHIRLWIND (Attack, 0 能量) — 对所有敌人造成7点伤害X次。\r\n抽牌堆: 13 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 185/250 | Block: 0 | 能力: SteamEruptionPower(21: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: Heal + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\nPLAY 4\nPLAY 2 -\u003e A\nPLAY 5\nEND_TURN\n\nBoss回血+Buff不攻击，完美贪心回合！\n1. Bloodletting（0能量，-3HP +2能量，触发Rupture +1力量=3）\n2. Prowess（1能量免费打出，+1力量=4，+1敏捷）\n3. Strike（1能量）= 6+4力量 = 10伤害\n4. Whirlwind（3能量）= 3次×(5+4)=9 = 27伤害\n\n总计37伤害，Boss 185→148（减去回复）。力量已达4点，后续每张攻击牌都有巨额加成！"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成13点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [5] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害两次。\r\n抽牌堆: 8 | 弃牌堆: 4\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 163/250 | Block: 0 | 能力: SteamEruptionPower(24: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 20 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4\n\n先Shrug It Off获得9格挡+抽1牌。20点攻击很猛（40HP不能冒太大险），先看抽到什么再平衡攻防。9格挡是基础，后续再决定是否追加防御或输出。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 40/80 | 格挡: 9 | 能量: 2/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成13点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害两次。\r\n  [5] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n抽牌堆: 7 | 弃牌堆: 5\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 163/250 | Block: 0 | 能力: SteamEruptionPower(24: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 20 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nPLAY 2\nEND_TURN\n\nTwin Strike（1能量）= (5+4)×2 = 18伤害，Boss 163→145。Defend（1能量）= 6格挡，总计15格挡，只吃5伤害（40→35）。平衡攻防——35HP还有生存空间，18伤害保持输出节奏。不用Battle Trance因为NoDrawPower会浪费，留着下回合。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 35/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(4: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成12点伤害。\n给予2层易伤。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成10点伤害。\r\n  [5] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n抽牌堆: 2 | 弃牌堆: 10\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 145/250 | Block: 0 | 能力: SteamEruptionPower(27: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 13 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\nPLAY 1 -\u003e A\nPLAY 4 -\u003e A\nPLAY 2\nPLAY 3\nEND_TURN\n\n完美五连：\n1. Bloodletting（0能量，-3HP→32HP，+2能量=5总计，触发Rupture→5力量）\n2. Bash（2能量）= 8+5=13伤害+2易伤\n3. Strike（1能量）= 6+5=11伤害\n4. Shrug It Off（1能量）= 9格挡\n5. Defend（1能量）= 6格挡\n\n总计24伤害，Boss 145→121，加2层易伤。15格挡完美覆盖13点攻击，0额外伤害。力量已达5，下回合易伤加成输出爆炸。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 32/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(5: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成14点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成11点伤害。\r\n  [4] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [5] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n抽牌堆: 12 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 116/250 | Block: 0 | 能力: SteamEruptionPower(30: 被击杀时，在你的下一回合结束时造成伤害。), VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 15 + Debuff + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 2\nPLAY 5\n\nBloodletting（0能量，-3HP→29HP，+2能量=5总计，触发Rupture→6力量）。然后Shrug It Off（1能量=4剩余，9格挡+抽1牌）。先看抽到什么，再决定是打Battle Trance抽更多牌还是直接攻击。9格挡部分覆盖15点攻击。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 29/80 | 格挡: 9 | 能量: 4/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(6: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成15点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [4] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 11 | 弃牌堆: 2\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 116/250 | Block: 0 | 能力: SteamEruptionPower(30: 被击杀时，在你的下一回合结束时造成伤害。), VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 15 + Debuff + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3\n\nBattle Trance（0能量）抽3张牌。4能量+6力量+易伤的爆发回合，需要最大手牌量来最大化输出。看看能抽到什么——Whirlwind、Twin Strike等都是超高伤害。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 29/80 | 格挡: 9 | 能量: 4/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(6: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成15点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] WHIRLWIND (Attack, 3 能量) — 对所有敌人造成11点伤害X次。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 8 | 弃牌堆: 3\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 116/250 | Block: 0 | 能力: SteamEruptionPower(30: 被击杀时，在你的下一回合结束时造成伤害。), VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 15 + Debuff + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1 -\u003e A\nPLAY 2 -\u003e A\nPLAY 5 -\u003e A\n\nHeadbutt(22=15×1.5) + Strike(18=12×1.5) + Strike(18=12×1.5) = 58伤害。第3张攻击触发Juggling复制Strike到手牌，还有1能量可以打！Boss 116→58。等待看复制牌。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [2] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [3] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\nHeadbutt检索Bloodletting到牌顶。下回合抽到Bloodletting继续触发Rupture叠力量+额外能量。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 29/80 | 格挡: 9 | 能量: 1/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(6: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), NoDrawPower(1: 你在本回合无法再抽更多牌。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [2] WHIRLWIND (Attack, 3 能量) — 对所有敌人造成11点伤害X次。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害。\r\n抽牌堆: 9 | 弃牌堆: 5\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 58/250 | Block: 0 | 能力: SteamEruptionPower(30: 被击杀时，在你的下一回合结束时造成伤害。), VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: 攻击 15 + Debuff + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\nEND_TURN\n\n防御获得6格挡，总计15格挡完美覆盖15点攻击，0伤害。29HP需要保守——SteamEruptionPower(30)意味着击杀Boss后下回合结束时受30伤害，必须留足HP和格挡。下回合有Bloodletting在牌顶，+2能量+1力量(7)，配合Whirlwind可以轻松打掉58HP终结Boss。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 29/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(6: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), WeakPower(1: 虚弱的生物造成的攻击伤害减少25%。)\r\n\r\n手牌：\r\n  [1] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [2] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [3] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成11点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [4] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [5] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成10点伤害。\n给予2层易伤。\r\n抽牌堆: 4 | 弃牌堆: 9\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 58/250 | Block: 0 | 能力: SteamEruptionPower(33: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 10 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 1\nPLAY 4\n\nBloodletting（0能量，-3HP→26HP，+2能量=5总计，触发Rupture→7力量）。Shrug It Off（1能量，9格挡+抽1牌）。4能量剩余，先看抽到什么再规划——Boss还有58HP且SteamEruption(33)意味着击杀后还要承受33伤害，必须谨慎规划进攻节奏和存活。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 26/80 | 格挡: 9 | 能量: 4/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(7: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。), WeakPower(1: 虚弱的生物造成的攻击伤害减少25%。)\r\n\r\n手牌：\r\n  [1] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [2] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [3] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成11点伤害。\n给予2层易伤。\r\n  [4] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成9点伤害两次。\r\n抽牌堆: 3 | 弃牌堆: 11\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 58/250 | Block: 0 | 能力: SteamEruptionPower(33: 被击杀时，在你的下一回合结束时造成伤害。)\r\n       意图: 攻击 10 + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 3 -\u003e A\nPLAY 2 -\u003e A\nPLAY 4 -\u003e A\nEND_TURN\n\nBash先(11伤+2易伤) → Headbutt(12×1.5=18) → Twin Strike(9×1.5=13×2=26) = 55伤害。Boss 58→3HP。第3张攻击触发Juggling复制。\n\n不击杀Boss是有意的！SteamEruption(33)在击杀后我的回合结束时造成33伤害。如果这回合杀了，26HP扛不住。留3HP到下回合，用1张牌终结后有2能量堆格挡（需9+格挡存活）。吃1点伤害(10-9格挡)→25HP。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 选择 1 张牌 ===\r\n从以下卡牌中选择 1 张（战斗中效果，例如军备升级、头锤选择等）：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [2] BATTLE_TRANCE (Skill, 0 能量) — 抽3张牌。\n你在本回合内不能再抽任何牌。\r\n  [3] HEADBUTT (Attack, 1 能量) — 造成22点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) — 造成18点伤害。\r\n  [5] STRIKE_IRONCLAD (Attack, 1 能量) — 造成18点伤害。\r\n  [6] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [7] WHIRLWIND (Attack, X 能量) — 对所有敌人造成5点伤害X次。\r\n  [8] DEFEND_IRONCLAD (Skill, 1 能量) — 获得5点格挡。\r\n  [9] STRIKE_IRONCLAD (Attack, 1 能量) — 造成6点伤害。\r\n  [10] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [11] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [12] BASH (Attack, 2 能量) — 造成11点伤害。\n给予2层易伤。\r\n\r\n请回复 CHOOSE \u003c编号\u003e（选 1 张）。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "CHOOSE 1\n\nShrug It Off放到牌顶。下回合必须完成：1)击杀3HP的Boss 2)堆够格挡扛住33点SteamEruption。Shrug It Off给9格挡+抽1牌，25HP+9格挡=34\u003e33，刚好存活。任何1能量攻击都能秒杀3HP Boss，剩余能量全部防御。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 25/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(7: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] SHRUG_IT_OFF (Skill, 1 能量) — 获得9点格挡。\n抽1张牌。\r\n  [2] BLOODLETTING (Skill, 0 能量) — 失去3点生命。\n获得2能量。\r\n  [3] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n  [4] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成13点伤害。\r\n  [5] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害两次。\r\n抽牌堆: 14 | 弃牌堆: 0\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 3/250 | Block: 0 | 能力: SteamEruptionPower(36: 被击杀时，在你的下一回合结束时造成伤害。), VulnerablePower(1: 易伤的生物从攻击中受到的伤害增加50%。)\r\n       意图: Heal + Buff\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 4 -\u003e A\nEND_TURN\n\nStrike(13)秒杀3HP Boss。不用Bloodletting——节省3HP极为关键。25HP面对SteamEruption(36)，下回合需要12+格挡。3能量抽5张牌，Shrug(9)+Defend(6)=15格挡轻松存活（25+15=40\u003e36）。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 战斗 — 你的回合 ===\r\n生命值: 25/80 | 格挡: 0 | 能量: 3/3\r\n遗物: BURNING_BLOOD(在战斗结束时，回复6点生命。), PRECISE_SCISSORS(拾起时，从你的牌组中移除1张牌。), POTION_BELT(拾起时，获得2个药水栏位。), REGAL_PILLOW(在休息时，额外回复15点生命。)\r\n你的能力: RupturePower(1: 每当你在自身回合失去生命时，获得1点力量。), StrengthPower(7: 力量会增加攻击牌造成的伤害。), JugglingPower(1: 将你在每回合打出的第三张攻击牌的复制品加入你的手牌。), DexterityPower(1: 敏捷会增加从卡牌中获得的格挡。)\r\n\r\n手牌：\r\n  [1] HEADBUTT (Attack, 1 能量) [目标: 单体敌人] — 造成16点伤害。\n将你弃牌堆中的一张牌放到抽牌堆顶部。\r\n  [2] TWIN_STRIKE (Attack, 1 能量) [目标: 单体敌人] — 造成12点伤害两次。\r\n  [3] STRIKE_IRONCLAD (Attack, 1 能量) [目标: 单体敌人] — 造成13点伤害。\r\n  [4] BASH (Attack, 2 能量) [目标: 单体敌人] — 造成15点伤害。\n给予2层易伤。\r\n  [5] DEFEND_IRONCLAD (Skill, 1 能量) — 获得6点格挡。\r\n抽牌堆: 9 | 弃牌堆: 5\r\n\r\n敌人：\r\n  [A] WATERFALL_GIANT — HP: 999999999/999999999 | Block: 0\r\n       意图: 攻击 36\r\n\r\n这回合打哪些牌/用哪些药水？使用 PLAY \u003c序号\u003e [-\u003e \u003c敌人字母\u003e] 或 POTION \u003cP序号\u003e [-\u003e \u003c敌人字母\u003e]，然后 END_TURN。\r\n"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "PLAY 5\nEND_TURN\n\n只有1张防御牌，6格挡。25HP+6格挡=31 vs 36攻击，会受5点伤害到20HP... \n\n等等，25-30=-5。这可能活不了。但只有这一张格挡牌能用，攻击牌对999999999HP的Boss毫无意义。只能尽力防御希望计算有误或有其他机制。"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "=== 游戏结束 ===\n本局游戏已结束。以下是本局统计：\nResult: defeat | Floor: 17 | HP: 0/80 | Gold: 200\r\nCharacter: IRONCLAD | Ascension: 0\r\nKilled by: WATERFALL_GIANT_BOSS\r\nRun time: 39:20\r\nFinal deck (19): STRIKE_IRONCLAD, STRIKE_IRONCLAD, STRIKE_IRONCLAD, DEFEND_IRONCLAD, DEFEND_IRONCLAD, DEFEND_IRONCLAD, DEFEND_IRONCLAD, BASH, SHRUG_IT_OFF, SHRUG_IT_OFF, HEADBUTT, BATTLE_TRANCE, WHIRLWIND, MOLTEN_FIST, JUGGLING, TWIN_STRIKE, BLOODLETTING, RUPTURE, BLOODLETTING\r\nRelics: BURNING_BLOOD, PRECISE_SCISSORS, POTION_BELT, REGAL_PILLOW\r\n\n你当前的记忆文件：\n---\n(empty — this is your first run)\n---\n\n现在输出你更新后的完整记忆文件。这是唯一能延续到下一局的内容。请输出完整的替换内容——不是差异，不是修改摘要，而是整个新版本。请考虑：\n- 这局中哪些有效，哪些无效\n- 发现的卡牌/遗物/药水联动或反联动\n- 敌人的行为规律和应对方法\n- 值得保留或修正的决策原则\n- 当前记忆中仍然有效的内容\n\n简洁但充分。你有足够空间记录详细笔记。"
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "```\n=== SLAY THE SPIRE 2 MEMORY FILE ===\nUpdated after: Run 1 (Ironclad, Ascension 0, Defeated by Waterfall Giant Boss at Floor 17)\n\n== BOSS KNOWLEDGE ==\nWATERFALL_GIANT:\n- 250 HP, gains SteamEruptionPower (increases each turn, was 36 by end)\n- CRITICAL: Has a SECOND PHASE after being \"killed\" — transforms to 999999999 HP and attacks for full SteamEruption damage\n- You MUST have enough block to survive the steam eruption hit (36+ damage)\n- Strategy: Need massive block preparation before killing. Don\u0027t rush the kill.\n- Consider: Save block potions, build enough defense to tank the eruption turn\n- Prioritize having 40+ HP when entering this fight\n- The boss heals and buffs on some turns — use those to set up\n\n== CARD COMBOS (PROVEN EFFECTIVE) ==\n- Rupture + Bloodletting: Each Bloodletting triggers +1 strength from Rupture. Core engine.\n- Bloodletting + Whirlwind: Extra energy = extra Whirlwind hits. Amazing burst.\n- 2x Bloodletting + Whirlwind: 7 energy Whirlwind = 35+ base damage AoE\n- Battle Trance + attack-heavy hand: 0-cost draw 3 maximizes energy efficiency\n- Headbutt + key card retrieval: Search for Whirlwind/Bloodletting as needed\n- Bash + Molten Fist: 2 vuln → doubled to 4 vuln, massive damage window\n- Juggling + 3 attacks/turn: Free card copy, best with high-value attacks\n\n== CARD EVALUATIONS ==\nTOP TIER: Whirlwind, Shrug It Off, Battle Trance, Bloodletting, Rupture\nHIGH TIER: Headbutt, Twin Strike, Molten Fist (self-exhausts = deck thin)\nSOLID: Bash (only 1 needed), Juggling (needs attack density)\nAVOID: Perfected Strike (anti-synergy with strike removal), True Grit (random exhaust), Anger (deck bloat)\n\n== STRATEGIC LESSONS ==\n1. REST vs UPGRADE: I rested twice but never upgraded. Should upgrade Bash (longer vuln) or Whirlwind when HP \u003e 60%\n2. CARD REMOVAL: Removing strikes is always correct early. Aim for 12-14 card deck.\n3. BOSS PREP: Need 40+ HP entering boss. SteamEruption is unavoidable damage.\n4. POTION USAGE: Save combat potions (energy, block) for boss fight, not regular encounters\n5. ENERGY MANAGEMENT: Bloodletting is risky at low HP. Don\u0027t use it below 15 HP.\n6. BLOCK PRIORITY: Against high-strength enemies, blocking is more important than damage\n7. ELITE FIGHTS: Worth taking with 60%+ HP for relic rewards\n\n== ENEMY PATTERNS ==\n- Corpse Slug (Ravenous): Kill one to stun others. Worth focusing one down.\n- Living Fog (Smoggy): Limits to 1 skill/turn. Prioritize attacks. Summons Gas Bombs.\n- Sewer Clam (Plating): Stacking block each turn, decreases by 1. Need burst to overcome.\n- Fossil Stalker (Suck): Gets strength from unblocked damage. Must block OR kill fast.\n- Toadpole: Gets thorns from buff turns. Minimize multi-hit attacks against thorns.\n\n== DECISION PRIORITIES ==\n1. Always take card removal events (Precise Scissors, etc.)\n2. Shop priority: Remove strike \u003e Strong card \u003e Relic \u003e Potion\n3. Pathing: Route through elite if HP \u003e 60%, always hit rest before boss\n4. Boss fight: Ensure survival first, damage second. Build block for final phase.\n5. Don\u0027t kill boss without sufficient block for aftermath effects.\n```"
+                  }
+              ],
+    "Count":  246
+}
