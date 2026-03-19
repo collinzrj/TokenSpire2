@@ -54,6 +54,8 @@
 ### 前置要求
 
 - **杀戮尖塔 2**（v0.98+），通过 Steam 安装
+- 在 Steam 中右键杀戮尖塔 2 → 属性 → 启动选项，添加 `--autoslay`, 此步骤可以装完mod再执行
+<img width="2150" height="1426" alt="屏幕截图 2026-03-20 052432" src="https://github.com/user-attachments/assets/6cf79c69-196f-4fa7-8066-29c3a2c7d4a4" />
 
 ### 方式一：下载发布版（推荐）
 
@@ -63,8 +65,8 @@
    - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
 3. 确保 `mods/` 下有一个 `TokenSpire2/` 文件夹
 4. 编辑 `TokenSpire2/` 文件夹中的 `llm_config.json` — 填入你的 API 密钥
-5. 在 Steam 中右键杀戮尖塔 2 → 属性 → 启动选项，添加 `--autoslay`
-6. 启动游戏
+
+
 
 ### 方式二：从源码编译
 
