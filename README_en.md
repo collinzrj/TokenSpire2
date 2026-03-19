@@ -1,4 +1,4 @@
-[English](README.md) | [中文](README_zh.md)
+[English](README_en.md) | [中文](README.md)
 
 # TokenSpire2 — LLM-Powered Slay the Spire 2 Agent
 
