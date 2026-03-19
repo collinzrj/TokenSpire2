@@ -1,4 +1,4 @@
-[English](README.md) | [中文](README_zh.md)
+[English](README_en.md) | [中文](README_zh.md)
 
 # TokenSpire2 — LLM 驱动的杀戮尖塔 2 自动游玩代理
 
