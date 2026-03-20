@@ -31,11 +31,15 @@ An autonomous Slay the Spire 2 mod that plays through entire runs using LLM-powe
 |-------|------|-----------|------------|-----------------|
 | Claude Opus 4.6 | 10 | 17.2 | 23 | 3/10 |
 | GPT-5.4 | 4 | 17.0 | 17 | 0/4 |
-| Qwen3.5-Plus | 5 | 10.4 | 15 | 0/5 |
+| Qwen3.5-Plus (think 1024) | 7 | 13.0 | 17 | 0/7 |
+| Kimi K2.5 | 5 | 12.8 | 17 | 0/5 |
+| Qwen3.5-Plus (no think) | 5 | 10.4 | 15 | 0/5 |
 
 - **Claude Opus 4.6** performed best — 3 out of 10 runs broke past the Act 1 Boss into Act 2 (reaching floor 23), with an upward trend in later runs
 - **GPT-5.4** consistently reached the Act 1 Boss (floor 17) but failed to defeat it in all 4 runs
-- **Qwen3.5-Plus** averaged around floor 10, struggling mainly with Elite fights and regular monsters
+- **Qwen3.5-Plus (think 1024)** significantly improved with thinking enabled — 4 out of 7 runs reached the Boss, though performance was inconsistent in later runs
+- **Kimi K2.5** performed similarly to Qwen with thinking, reaching the Boss once
+- **Qwen3.5-Plus (no think)** averaged around floor 10 — thinking capability had a clear positive impact on performance
 
 ### Claude Opus 4.6 — First Session (4 Runs, Ironclad A0)
 
