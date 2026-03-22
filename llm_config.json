@@ -4,5 +4,7 @@
   "Model": "anthropic/claude-opus-4.6",
   "Lang": "zh",
   "Thinking": true,
-  "ThinkingBudget": 2048
+  "ThinkingBudget": 2048,
+  "Seed": "",
+  "Character": "IRONCLAD"
 }

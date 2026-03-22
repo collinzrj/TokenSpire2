@@ -69,7 +69,7 @@ public static class GameStateSerializer
         for (int i = 0; i < hand.Count; i++)
         {
             var c = hand[i];
-            var cost = c.EnergyCost.GetResolved();
+            var cost = c.EnergyCost.CostsX ? "X" : c.EnergyCost.GetResolved().ToString();
             var desc = SafeGetDescription(c);
             var target = c.TargetType == TargetType.AnyEnemy ? P("TargetSingleEnemy") : "";
             var playable = c.CanPlay(out _, out _) ? "" : P("Unplayable");

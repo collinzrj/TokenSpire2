@@ -48,6 +48,9 @@ public partial class AutoSlayNode : Node
     private AutoSlayCardSelector? _cardSelector;
     private readonly System.Random _rng = new();
 
+    private string _seed = "";
+    private string _character = "IRONCLAD";
+
     // LLM state
     private LlmClient? _llm;
     private Task<string>? _pendingLlm;
@@ -74,7 +77,13 @@ public partial class AutoSlayNode : Node
 
         var config = LlmConfig.Load();
         if (config != null)
+        {
             _llm = new LlmClient(config);
+            if (!string.IsNullOrEmpty(config.Seed))
+                _seed = config.Seed;
+            if (!string.IsNullOrEmpty(config.Character))
+                _character = config.Character.ToUpperInvariant();
+        }
 
         // Register card selector to auto-handle mid-combat card selections (e.g. Armaments)
         // These use ICardSelector, not overlay screens, so they need this even with LLM
@@ -113,10 +122,10 @@ public partial class AutoSlayNode : Node
         }
 
         // Keep seed override set (NGame.Instance may not exist at _Ready time)
-        if (NGame.Instance != null && NGame.Instance.DebugSeedOverride == null)
+        if (NGame.Instance != null && !string.IsNullOrEmpty(_seed) && NGame.Instance.DebugSeedOverride != _seed)
         {
-            NGame.Instance.DebugSeedOverride = "AUTOSLAY42";
-            MainFile.Logger.Info("[AutoSlay] Seed override set to AUTOSLAY42");
+            NGame.Instance.DebugSeedOverride = _seed;
+            MainFile.Logger.Info($"[AutoSlay] Seed override set to {_seed}");
         }
 
         // ── Check pending LLM call ───────────────────────────────────────────
@@ -335,13 +344,19 @@ public partial class AutoSlayNode : Node
             }
             if (_restSiteChoiceMade)
             {
-                // Choice already made — just wait for proceed button
+                // Choice already made — wait for proceed or overlay (e.g. upgrade card select)
+                if (NOverlayStack.Instance?.ScreenCount > 0)
+                {
+                    _cooldown = 0.5;
+                    return; // let overlay handler deal with it
+                }
                 var proceed = restRoom.ProceedButton;
                 if (proceed?.IsEnabled == true)
                 {
                     MainFile.Logger.Info("[AutoSlay] Clicking rest site proceed");
                     proceed.ForceClick();
-                    _cooldown = 1.5;
+                    _restSiteChoiceMade = false; // reset immediately after clicking
+                    _cooldown = 2.0;
                 }
                 else
                 {
@@ -465,7 +480,7 @@ public partial class AutoSlayNode : Node
                 {
                     foreach (var btn in AutoSlayHelpers.FindAll<NCharacterSelectButton>(buttonContainer))
                     {
-                        if (!btn.IsLocked && btn.Character?.Id.Entry == "IRONCLAD")
+                        if (!btn.IsLocked && btn.Character?.Id.Entry == _character)
                         {
                             btn.Select();
                             break;

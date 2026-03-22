@@ -179,6 +179,47 @@ Mod 在 `TokenSpire2.dll` 旁边写入以下文件（共享相同的会话时间
 | `llm_history_{ts}.json` | 完整对话历史（嵌套数组：局 → 消息） |
 | `llm_memory_{ts}.md` | LLM 自主维护的记忆/策略笔记 |
 
+## 实时观战面板
+
+`tools/viewer.py` 提供一个本地 Web UI，可以在游戏运行时实时查看 LLM 的对话、思考摘要和语音播报。
+
+### 启动
+
+```bash
+# 安装依赖
+pip install dashscope
+
+# 启动观战面板（自动发现最新日志）
+python tools/viewer.py
+
+# 或指定 mod 文件夹
+python tools/viewer.py "D:\SteamLibrary\steamapps\common\Slay the Spire 2\mods\TokenSpire2"
+```
+
+打开 http://localhost:5555 即可使用。
+
+### 功能
+
+- **实时对话** — 每秒刷新，展示游戏状态、LLM 响应，支持流式更新
+- **思考摘要** — 自动将 LLM 的 CoT 推理过程用幽默口吻总结为中文（每 3 秒增量更新）
+- **语音播报（TTS）** — 勾选底部 TTS 复选框，自动将最新摘要转为语音播放（使用阿里云 Qwen TTS）
+- **弹幕桥接** — 运行 `tools/danmaku_bridge.py` 可从小红书直播中控台抓取观众评论，注入到 LLM 的用户指令中
+- **可折叠侧边栏** — 点击左侧按钮展开/收起消息列表
+- **自动跟随** — 自动滚动到最新消息，可关闭以浏览历史
+
+### 弹幕桥接
+
+```bash
+# 安装 Playwright
+pip install playwright
+playwright install chromium
+
+# 启动弹幕桥接（会打开小红书直播中控台页面）
+python tools/danmaku_bridge.py
+```
+
+观众评论会自动写入 `instruction.txt`，LLM 在下次调用时读取并注入到提示中。
+
 ## 致谢
 
 - 参考 erasels 的 [STS2 Mod 框架](https://github.com/erasels/Minty-Spire-2) 构建

@@ -131,15 +131,28 @@ public class LlmClient
         return new { messages = msgs };
     }
 
-    /// <summary>Save reflection/lessons as memory for future runs.</summary>
-    public void SaveMemory(string text)
+    /// <summary>Append new lessons to memory. Truncates new text to ~4096 tokens (~16K chars).</summary>
+    public void SaveMemory(string newText)
     {
-        _memory = text;
+        // Truncate new update to ~4096 tokens (rough estimate: 1 token ≈ 4 chars)
+        const int maxChars = 16000;
+        if (newText.Length > maxChars)
+        {
+            newText = newText.Substring(0, maxChars) + "\n[...truncated]";
+            MainFile.Logger.Info($"[AutoSlay/LLM] Memory update truncated to {maxChars} chars");
+        }
+
+        // Append to existing memory
+        var separator = $"\n\n--- Run {DateTime.Now:yyyy-MM-dd HH:mm} ---\n";
+        _memory = string.IsNullOrEmpty(_memory)
+            ? newText
+            : _memory + separator + newText;
+
         try
         {
-            File.WriteAllText(_memoryPath, $"# LLM Memory\nUpdated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n\n{text}\n");
-            LogToFile($"[MEMORY SAVED]\n{text}");
-            MainFile.Logger.Info("[AutoSlay/LLM] Memory saved to file");
+            File.WriteAllText(_memoryPath, $"# LLM Memory\nUpdated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n\n{_memory}\n");
+            LogToFile($"[MEMORY APPENDED]\n{newText}");
+            MainFile.Logger.Info("[AutoSlay/LLM] Memory appended to file");
         }
         catch (Exception ex)
         {
@@ -152,6 +165,10 @@ public class LlmClient
     public async Task<string> SendAsync(string userMessage, string? context = null)
     {
         _currentContext = context;
+        // Inject extra instructions into user message
+        var instruction = ReadInstruction();
+        if (instruction != null)
+            userMessage += "\n\n=== EXTRA INSTRUCTION ===\n" + instruction;
         _history.Add(new Message("user", userMessage, context: context, timestamp: DateTime.Now.ToString("o")));
         SaveLive();
 
@@ -194,6 +211,11 @@ public class LlmClient
         // Read SSE stream on background thread to avoid blocking the game
         var assistantMessage = new StringBuilder();
         var thinkingContent = new StringBuilder();
+        // Add a streaming placeholder to history so the viewer can see partial output
+        var streamingMsg = new Message("assistant", "", context: _currentContext, timestamp: DateTime.Now.ToString("o"));
+        _history.Add(streamingMsg);
+        var lastLiveWrite = DateTime.UtcNow;
+
         using var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         using var reader = new System.IO.StreamReader(stream);
         while (!reader.EndOfStream)
@@ -224,14 +246,29 @@ public class LlmClient
                 }
             }
             catch { /* skip malformed chunks */ }
+
+            // Update live file periodically during streaming (~500ms)
+            if ((DateTime.UtcNow - lastLiveWrite).TotalMilliseconds > 500)
+            {
+                var thinkSoFar = thinkingContent.ToString();
+                _history[_history.Count - 1] = streamingMsg with
+                {
+                    content = assistantMessage.ToString(),
+                    thinking = string.IsNullOrEmpty(thinkSoFar) ? null : thinkSoFar
+                };
+                SaveLive();
+                lastLiveWrite = DateTime.UtcNow;
+            }
         }
 
         var result = assistantMessage.ToString();
         var thinking = thinkingContent.ToString();
-        _history.Add(new Message("assistant", result,
-            thinking: string.IsNullOrEmpty(thinking) ? null : thinking,
-            context: _currentContext,
-            timestamp: DateTime.Now.ToString("o")));
+        _history[_history.Count - 1] = streamingMsg with
+        {
+            content = result,
+            thinking = string.IsNullOrEmpty(thinking) ? null : thinking,
+            timestamp = DateTime.Now.ToString("o")
+        };
         SaveLive();
 
         if (!string.IsNullOrEmpty(thinking))
@@ -243,17 +280,30 @@ public class LlmClient
 
     private void ApplyReasoningParams(Dictionary<string, object> body)
     {
+        bool isOpenRouter = _endpoint.Contains("openrouter");
         if (_thinking)
         {
-            body["reasoning"] = new { max_tokens = _thinkingBudget };
-            // Claude needs Anthropic provider routing (Bedrock doesn't support thinking)
-            var m = _model.ToLowerInvariant();
-            if (m.Contains("claude") || m.Contains("anthropic"))
-                body["provider"] = new { order = new[] { "Anthropic" } };
+            if (isOpenRouter)
+            {
+                // OpenRouter: reasoning.max_tokens format
+                body["reasoning"] = new { max_tokens = _thinkingBudget };
+                var m = _model.ToLowerInvariant();
+                if (m.Contains("claude") || m.Contains("anthropic"))
+                    body["provider"] = new { order = new[] { "Anthropic" } };
+            }
+            else
+            {
+                // Dashscope / other OpenAI-compatible: top-level fields
+                body["enable_thinking"] = true;
+                body["thinking_budget"] = _thinkingBudget;
+            }
         }
         else
         {
-            body["reasoning"] = new { enabled = false };
+            if (isOpenRouter)
+                body["reasoning"] = new { enabled = false };
+            else
+                body["enable_thinking"] = false;
         }
     }
 
@@ -263,6 +313,22 @@ public class LlmClient
         if (!string.IsNullOrEmpty(_memory))
             prompt += "\n\n=== YOUR MEMORY FILE ===\n" + _memory;
         return prompt;
+    }
+
+    private string? ReadInstruction()
+    {
+        try
+        {
+            var dir = Path.GetDirectoryName(
+                System.Reflection.Assembly.GetExecutingAssembly().Location) ?? ".";
+            var path = Path.Combine(dir, "instruction.txt");
+            if (!File.Exists(path)) return null;
+            var text = File.ReadAllText(path).Trim();
+            if (!string.IsNullOrEmpty(text))
+                File.Delete(path);
+            return string.IsNullOrEmpty(text) ? null : text;
+        }
+        catch { return null; }
     }
 
     private void LogToFile(string text)

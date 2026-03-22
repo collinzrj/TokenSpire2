@@ -1,1 +1,6 @@
 .godot
+.browser_data
+__pycache__/
+tools/viewer.log
+tools/danmaku.log
+tools/page_dump.html

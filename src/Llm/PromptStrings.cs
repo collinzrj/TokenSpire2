@@ -63,19 +63,17 @@ For SHOP decisions:
   LEAVE
 
 STRATEGY GUIDELINES:
-- In combat, prioritize blocking when enemies telegraph high damage
+- In combat, try to block ALL incoming damage — survival is the top priority
+- AVOID all elite fights regardless of HP level
+- Prefer unknown rooms (?) for more events and resources
 - Build deck synergy — don't add cards that don't fit your archetype
 - Manage energy efficiently — play high-impact cards first
-- At rest sites, upgrade over rest when HP is above 60%
-- Prefer elite fights for better rewards when HP allows
 - Remove weak cards (Strikes) from your deck when possible
-- Consider enemy intent when deciding between offense and defense
-- Save potions for tough fights (elites, bosses) — don't waste them on easy encounters
 
 CONTINUAL LEARNING:
-You are in a continual learning loop. You play runs, and after each run you will be asked to update your memory file. This memory persists across runs within a session — it is the ONLY thing that carries over. Use it however you see fit: strategies, patterns, card/relic evaluations, enemy tactics, mistakes to avoid, synergies discovered, or anything else you believe will help you play better. You own this memory — organize, update, and prune it as you learn.
+You are in a continual learning loop. After each run you will write new lessons that get APPENDED to your accumulated memory. Memory persists across runs — do not repeat existing content, only write new discoveries.
 
-You may add a brief reasoning line AFTER your action, but the action lines MUST come first.",
+Output ONLY action commands. Do not add any reasoning or explanation.",
 
 @"你是一位杰出的《杀戮尖塔2》玩家，正在实时游戏中做决策。你会收到游戏状态描述，必须回复你的决定。
 
@@ -120,19 +118,17 @@ You may add a brief reasoning line AFTER your action, but the action lines MUST 
   LEAVE
 
 策略指南：
-- 战斗中，当敌人预告高伤害时优先格挡
+- 战斗中尽量格挡掉所有伤害，生存优先
+- 不管血量多少都尽量避开所有精英
+- 多去未知房间（？）获取更多事件和资源
 - 构建牌组联动 —— 不要加入与你流派不搭的牌
 - 高效管理能量 —— 优先打高价值牌
-- 休息点：血量高于60%时优先升级而非休息
-- 血量允许时优先打精英获取更好奖励
 - 有机会时移除弱牌（打击）
-- 根据敌人意图决定进攻还是防御
-- 药水留给硬仗（精英、Boss）—— 不要浪费在简单战斗上
 
 持续学习模式：
-你处于持续学习循环中。每局结束后，你将被要求更新你的记忆文件。这份记忆在同一会话的多局游戏间持续存在——它是唯一能延续到下一局的内容。你可以自由决定如何使用它：策略心得、规律总结、卡牌/遗物评价、敌人战术、需要避免的错误、发现的联动组合，或任何你认为有助于提升水平的内容。这份记忆由你掌控——根据你的学习自由组织、更新和精简。
+你处于持续学习循环中。每局结束后，你将写下本局的新教训，追加到已有记忆中。记忆在多局间持续积累——不要重复已有内容，只写新发现。
 
-你可以在操作指令之后附上简短的推理，但操作指令必须在最前面。"
+只输出操作指令，不要附加任何推理或解释。"
         ),
 
         // ========== Game Over ==========
@@ -141,36 +137,22 @@ You may add a brief reasoning line AFTER your action, but the action lines MUST 
 @"=== GAME OVER ===
 This run has ended. Here are the stats:
 {0}
-Your current memory file:
+Your accumulated memory from previous runs:
 ---
 {1}
 ---
 
-Now output your UPDATED memory file. This is the only thing that carries over to your next run. Write the complete updated memory — not a diff, not a summary of changes, but the full replacement content. Consider:
-- What worked and what didn't in this run
-- Any card/relic/potion synergies or anti-synergies you discovered
-- Enemy patterns and how to handle them
-- Decision-making principles worth keeping or revising
-- Anything from the current memory that is still valid
-
-Be concise but thorough. You have room for detailed notes.",
+Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the memory above. Summarize the run stats in one line, then list new insights. Your output will be APPENDED to the existing memory. Keep it concise — you have a 4096 token budget for this update.",
 
 @"=== 游戏结束 ===
 本局游戏已结束。以下是本局统计：
 {0}
-你当前的记忆文件：
+你之前积累的记忆：
 ---
 {1}
 ---
 
-现在输出你更新后的完整记忆文件。这是唯一能延续到下一局的内容。请输出完整的替换内容——不是差异，不是修改摘要，而是整个新版本。请考虑：
-- 这局中哪些有效，哪些无效
-- 发现的卡牌/遗物/药水联动或反联动
-- 敌人的行为规律和应对方法
-- 值得保留或修正的决策原则
-- 当前记忆中仍然有效的内容
-
-简洁但充分。你有足够空间记录详细笔记。"
+只写本局的新教训。不要重复已有记忆中的内容。先用一行总结本局数据，然后列出新发现。你的输出会被追加到已有记忆后面。保持简洁——本次更新限4096 token。"
         ),
 
         // ========== Combat ==========

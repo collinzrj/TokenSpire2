@@ -13,6 +13,8 @@ public class LlmConfig
     public bool Thinking { get; set; } = true;
     [JsonPropertyName("thinking_budget")]
     public int ThinkingBudget { get; set; } = 2048;
+    public string Seed { get; set; } = "";
+    public string Character { get; set; } = "IRONCLAD";
 
     public static LlmConfig? Load()
     {
