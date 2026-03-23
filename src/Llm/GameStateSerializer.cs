@@ -47,7 +47,11 @@ public static class GameStateSerializer
         var pcs = player.PlayerCombatState;
 
         sb.AppendLine(P("CombatHeader"));
-        sb.AppendLine(P("HpBlockEnergy", creature.CurrentHp, creature.MaxHp, creature.Block, pcs?.Energy ?? 0, player.MaxEnergy));
+        var stars = pcs?.Stars ?? 0;
+        if (stars > 0)
+            sb.AppendLine(P("HpBlockEnergy", creature.CurrentHp, creature.MaxHp, creature.Block, pcs?.Energy ?? 0, player.MaxEnergy) + $" | {P("Stars")}: {stars}");
+        else
+            sb.AppendLine(P("HpBlockEnergy", creature.CurrentHp, creature.MaxHp, creature.Block, pcs?.Energy ?? 0, player.MaxEnergy));
 
         // Relics
         var relics = player.Relics?.ToList();
@@ -70,16 +74,28 @@ public static class GameStateSerializer
         {
             var c = hand[i];
             var cost = c.EnergyCost.CostsX ? "X" : c.EnergyCost.GetResolved().ToString();
+            var starCost = c.GetStarCostWithModifiers();
+            var costStr = starCost > 0
+                ? $"{cost} {P("Energy")} + {starCost} {P("Stars")}"
+                : (starCost == 0 && c.CanonicalStarCost >= 0)
+                    ? $"{starCost} {P("Stars")}"
+                    : $"{cost} {P("Energy")}";
             var desc = SafeGetDescription(c);
+            var upgraded = c.IsUpgraded ? "+" : "";
             var target = c.TargetType == TargetType.AnyEnemy ? P("TargetSingleEnemy") : "";
             var playable = c.CanPlay(out _, out _) ? "" : P("Unplayable");
-            sb.AppendLine($"  [{i + 1}] {c.Id.Entry} ({c.Type}, {cost} {P("Energy")}){target}{playable} — {desc}");
+            sb.AppendLine($"  [{i + 1}] {CardName(c)} ({c.Type}, {costStr}){target}{playable} — {desc}");
         }
 
-        // Draw/Discard counts
-        var drawCount = PileType.Draw.GetPile(player).Cards.Count;
-        var discardCount = PileType.Discard.GetPile(player).Cards.Count;
-        sb.AppendLine(P("DrawDiscardPile", drawCount, discardCount));
+        // Draw/Discard/Exhaust piles (card names only)
+        var drawCards = PileType.Draw.GetPile(player).Cards.ToList();
+        var discardCards = PileType.Discard.GetPile(player).Cards.ToList();
+        var exhaustCards = PileType.Exhaust.GetPile(player).Cards.ToList();
+        sb.AppendLine($"{P("DrawPile")} ({drawCards.Count}): {string.Join(", ", drawCards.Select(c => CardName(c)))}");
+        sb.AppendLine($"{P("DiscardPile")} ({discardCards.Count}): {string.Join(", ", discardCards.Select(c => CardName(c)))}");
+        if (exhaustCards.Count > 0)
+            sb.AppendLine($"{P("ExhaustPile")} ({exhaustCards.Count}): {string.Join(", ", exhaustCards.Select(c => CardName(c)))}");
+
 
         // Potions — log all slots for debugging
         var allPotions = player.Potions.ToList();
@@ -95,6 +111,44 @@ public static class GameStateSerializer
                 var desc = StripBBCode(p.DynamicDescription?.GetFormattedText() ?? p.Description?.GetFormattedText() ?? "");
                 var targetStr = p.TargetType == TargetType.AnyEnemy ? P("TargetSingleEnemy") : "";
                 sb.AppendLine($"  [P{i + 1}] {p.Id.Entry}{targetStr} — {desc}");
+            }
+        }
+
+        // Summons/Pets (e.g. Necrobinder's Osty)
+        var pets = player.PlayerCombatState?.Pets?.Where(p => p.IsAlive).ToList();
+        if (pets != null && pets.Count > 0)
+        {
+            sb.AppendLine();
+            sb.AppendLine(P("Summons"));
+            foreach (var pet in pets)
+            {
+                var petPowers = pet.Powers.ToList();
+                var petPowerStr = petPowers.Count > 0
+                    ? $" | {P("Powers", string.Join(", ", petPowers.Select(p => FormatPower(p))))}"
+                    : "";
+                sb.AppendLine($"  {pet.Name ?? pet.Monster?.Id.Entry ?? "Summon"} — HP: {pet.CurrentHp}/{pet.MaxHp} | Block: {pet.Block}{petPowerStr}");
+            }
+        }
+
+        // Orbs (Defect)
+        var orbQueue = pcs?.OrbQueue;
+        if (orbQueue != null && orbQueue.Capacity > 0)
+        {
+            var orbs = orbQueue.Orbs.ToList();
+            sb.AppendLine();
+            sb.AppendLine($"{P("Orbs")} ({orbs.Count}/{orbQueue.Capacity}):");
+            if (orbs.Count > 0)
+            {
+                for (int i = 0; i < orbs.Count; i++)
+                {
+                    var orb = orbs[i];
+                    var orbDesc = StripBBCode(orb.Description?.GetFormattedText() ?? "");
+                    sb.AppendLine($"  [{i + 1}] {orb.Title.GetFormattedText()} — {orbDesc}");
+                }
+            }
+            else
+            {
+                sb.AppendLine($"  ({P("Empty")})");
             }
         }
 
@@ -135,7 +189,8 @@ public static class GameStateSerializer
             {
                 var desc = SafeGetDescription(card);
                 var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
-                sb.AppendLine($"  [{i + 1}] {card.Id.Entry} ({card.Type}, {cost} {P("Energy")}, {card.Rarity}) — {desc}");
+                var up = card.IsUpgraded ? "+" : "";
+                sb.AppendLine($"  [{i + 1}] {CardName(card)} ({card.Type}, {cost} {P("Energy")}, {card.Rarity}) — {desc}");
             }
             else
                 sb.AppendLine($"  [{i + 1}] {P("UnknownCard")}");
@@ -197,7 +252,7 @@ public static class GameStateSerializer
             {
                 var cardDesc = SafeGetDescription(card);
                 var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
-                sb.AppendLine($"  Card {cardIdx}: {card.Id.Entry} ({card.Type}, {cost} {P("Energy")}, {card.Rarity}) — {cardDesc}");
+                sb.AppendLine($"  Card {cardIdx}: {CardName(card)} ({card.Type}, {cost} {P("Energy")}, {card.Rarity}) — {cardDesc}");
                 cardIdx++;
             }
         }
@@ -383,7 +438,8 @@ public static class GameStateSerializer
             var desc = SafeGetDescription(card);
             var sale = entry.IsOnSale ? P("Sale") : "";
             var affordable = entry.EnoughGold ? "" : P("NotEnoughGold");
-            sb.AppendLine($"  [{idx}] {card.Id.Entry} ({card.Type}, {card.EnergyCost.Canonical} {P("Energy")}, {card.Rarity}) — {desc} | {P("Cost", entry.Cost)}{sale}{affordable}");
+            var up = card.IsUpgraded ? "+" : "";
+            sb.AppendLine($"  [{idx}] {CardName(card)} ({card.Type}, {card.EnergyCost.Canonical} {P("Energy")}, {card.Rarity}) — {desc} | {P("Cost", entry.Cost)}{sale}{affordable}");
             idx++;
         }
 
@@ -441,7 +497,12 @@ public static class GameStateSerializer
         {
             var label = screen.GetNodeOrNull<Godot.RichTextLabel>("%BottomLabel");
             if (label != null)
-                return StripBBCode(label.Text ?? "");
+            {
+                var raw = label.Text ?? "";
+                var stripped = StripBBCode(raw);
+                MainFile.Logger.Info($"[AutoSlay/DBG] ScreenLabel raw='{raw}' stripped='{stripped}'");
+                return stripped;
+            }
         }
         catch { /* ignore */ }
         return "";
@@ -453,10 +514,9 @@ public static class GameStateSerializer
         // Try to read the actual screen prompt (e.g. "选择2张牌来移除。")
         var screenLabel = ReadScreenLabel(screen);
         if (!string.IsNullOrEmpty(screenLabel))
-            sb.AppendLine($"=== {StripBBCode(screenLabel)} ===");
+            sb.AppendLine($"=== {screenLabel} ===");
         else
             sb.AppendLine($"=== {screenType} ===");
-        sb.AppendLine(P("ChooseCardFromDeck"));
 
         var cards = AutoSlayHelpers.FindAll<NGridCardHolder>(screen);
         for (int i = 0; i < cards.Count; i++)
@@ -466,7 +526,8 @@ public static class GameStateSerializer
             {
                 var desc = SafeGetDescription(card);
                 var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
-                sb.AppendLine($"  [{i + 1}] {card.Id.Entry} ({card.Type}, {cost} {P("Energy")}) — {desc}");
+                var up = card.IsUpgraded ? "+" : "";
+                sb.AppendLine($"  [{i + 1}] {CardName(card)} ({card.Type}, {cost} {P("Energy")}) — {desc}");
             }
             else
                 sb.AppendLine($"  [{i + 1}] {P("UnknownCard")}");
@@ -487,6 +548,22 @@ public static class GameStateSerializer
     }
 
     public static string SafeGetCardDescription(CardModel card) => SafeGetDescription(card);
+
+    private static string CardName(CardModel card)
+    {
+        try
+        {
+            var name = card.TitleLocString.GetFormattedText();
+            if (card.IsUpgraded)
+                name += card.MaxUpgradeLevel > 1 ? $"+{card.CurrentUpgradeLevel}" : "+";
+            return name;
+        }
+        catch (Exception ex)
+        {
+            MainFile.Logger.Info($"[AutoSlay/DBG] CardName failed for {card.Id.Entry}: {ex.Message}");
+            return card.Id.Entry + (card.IsUpgraded ? "+" : "");
+        }
+    }
 
     private static string SafeGetDescription(CardModel card)
     {

@@ -142,7 +142,7 @@ Your accumulated memory from previous runs:
 {1}
 ---
 
-Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the memory above. Summarize the run stats in one line, then list new insights. Your output will be APPENDED to the existing memory. Keep it concise — you have a 4096 token budget for this update.",
+Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the memory above. Summarize the run stats in one line, then list new insights. Your output will be APPENDED to the existing memory. It should be longer than 1000 tokens but less than 4000 tokens.",
 
 @"=== 游戏结束 ===
 本局游戏已结束。以下是本局统计：
@@ -152,7 +152,7 @@ Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the 
 {1}
 ---
 
-只写本局的新教训。不要重复已有记忆中的内容。先用一行总结本局数据，然后列出新发现。你的输出会被追加到已有记忆后面。保持简洁——本次更新限4096 token。"
+只写本局的新教训。不要重复已有记忆中的内容。先用一行总结本局数据，然后列出新发现。你的输出会被追加到已有记忆后面。不少于1000 token 但是必须少于4000 token."
         ),
 
         // ========== Combat ==========
@@ -192,14 +192,27 @@ Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the 
             "energy",
             "能量"
         ),
+        ["Stars"] = (
+            "stars",
+            "星光"
+        ),
         ["DrawDiscardPile"] = (
             "Draw pile: {0} | Discard pile: {1}",
             "抽牌堆: {0} | 弃牌堆: {1}"
         ),
+        ["DrawPile"] = ("Draw pile", "抽牌堆"),
+        ["DiscardPile"] = ("Discard pile", "弃牌堆"),
+        ["ExhaustPile"] = ("Exhaust pile", "消耗牌堆"),
         ["Potions"] = (
             "Potions:",
             "药水："
         ),
+        ["Summons"] = (
+            "Your Summons:",
+            "你的召唤物："
+        ),
+        ["Orbs"] = ("Orbs", "充能球"),
+        ["Empty"] = ("empty", "空"),
         ["Enemies"] = (
             "Enemies:",
             "敌人："
@@ -419,12 +432,12 @@ Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the 
             "=== 选择 {0} 张牌 ==="
         ),
         ["SelectCardsIntro"] = (
-            "Choose {0} card(s) from the following (mid-combat effect, e.g. Armaments upgrade, Headbutt pick, etc.):",
-            "从以下卡牌中选择 {0} 张（战斗中效果，例如军备升级、头锤选择等）："
+            "A card effect requires you to choose {0} card(s). Check the screen title above for what this selection does:",
+            "一个卡牌/药水/遗物效果需要你选择 {0} 张牌（请参考上方标题了解具体效果）："
         ),
         ["SelectCardsNonCombat"] = (
-            "Choose {0} card(s) to REMOVE from your deck (e.g. from a relic or event effect):",
-            "从你的牌组中选择 {0} 张牌移除（例如遗物或事件效果）："
+            "An effect requires you to choose {0} card(s) from your deck. Check the screen title above for what this selection does:",
+            "一个效果需要你从牌组中选择 {0} 张牌（请参考上方标题了解具体效果）："
         ),
         ["ReplyChooseCount"] = (
             "Reply with CHOOSE <number> (pick {0}).",

@@ -44,12 +44,15 @@ public partial class AutoSlayNode : Node
     private double _logTimer;
     private string? _lastLog;
     private bool _ftueDisabled;
+    private bool _hpBoosted;
     private IDisposable? _cardSelectorScope;
     private AutoSlayCardSelector? _cardSelector;
     private readonly System.Random _rng = new();
 
     private string _seed = "";
     private string _character = "IRONCLAD";
+    private float _hpMultiplier = 1.0f;
+    private static readonly string[] ValidCharacters = { "IRONCLAD", "SILENT", "DEFECT", "REGENT", "NECROBINDER" };
 
     // LLM state
     private LlmClient? _llm;
@@ -83,6 +86,7 @@ public partial class AutoSlayNode : Node
                 _seed = config.Seed;
             if (!string.IsNullOrEmpty(config.Character))
                 _character = config.Character.ToUpperInvariant();
+            _hpMultiplier = config.HpMultiplier;
         }
 
         // Register card selector to auto-handle mid-combat card selections (e.g. Armaments)
@@ -128,6 +132,21 @@ public partial class AutoSlayNode : Node
             MainFile.Logger.Info($"[AutoSlay] Seed override set to {_seed}");
         }
 
+        // Apply HP multiplier once per run
+        if (!_hpBoosted && _hpMultiplier != 1.0f)
+        {
+            var rs = RunManager.Instance?.DebugOnlyGetState();
+            var p = rs != null ? LocalContext.GetMe(rs) : null;
+            if (p?.Creature != null)
+            {
+                int newMax = (int)(p.Creature.MaxHp * _hpMultiplier);
+                p.Creature.SetMaxHpInternal(newMax);
+                p.Creature.SetCurrentHpInternal(newMax);
+                MainFile.Logger.Info($"[AutoSlay] HP multiplied by {_hpMultiplier}: {newMax}");
+                _hpBoosted = true;
+            }
+        }
+
         // ── Check pending LLM call ───────────────────────────────────────────
         if (_pendingLlm != null)
         {
@@ -140,7 +159,8 @@ public partial class AutoSlayNode : Node
                     MainFile.Logger.Info($"[AutoSlay/LLM] Request failed: {_pendingLlm.Exception?.InnerException?.Message}");
                     _pendingLlm = null;
                     _pendingContext = null;
-                    _cooldown = 1.0;
+                    _combatTurnRequested = false; // allow retry
+                    _cooldown = 2.0;
                     return;
                 }
 
@@ -449,6 +469,7 @@ public partial class AutoSlayNode : Node
         var mainMenu = GetNodeOrNull<Control>("/root/Game/RootSceneContainer/MainMenu");
         if (mainMenu != null && mainMenu.IsVisibleInTree())
         {
+            _hpBoosted = false;
             _cooldown = HandleMainMenu(mainMenu);
             return;
         }
@@ -474,15 +495,20 @@ public partial class AutoSlayNode : Node
             var embark = charSelect.GetNodeOrNull<NConfirmButton>("ConfirmButton");
             if (embark != null && embark.IsEnabled)
             {
-                // First ensure Ironclad is selected
+                // Resolve RANDOM to a specific character
+                var targetChar = _character;
+                if (targetChar == "RANDOM")
+                    targetChar = ValidCharacters[_rng.Next(ValidCharacters.Length)];
+
                 var buttonContainer = charSelect.GetNodeOrNull<Node>("CharSelectButtons/ButtonContainer");
                 if (buttonContainer != null)
                 {
                     foreach (var btn in AutoSlayHelpers.FindAll<NCharacterSelectButton>(buttonContainer))
                     {
-                        if (!btn.IsLocked && btn.Character?.Id.Entry == _character)
+                        if (!btn.IsLocked && btn.Character?.Id.Entry == targetChar)
                         {
                             btn.Select();
+                            MainFile.Logger.Info($"[AutoSlay] Selected character: {targetChar}");
                             break;
                         }
                     }

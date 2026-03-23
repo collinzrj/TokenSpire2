@@ -74,6 +74,7 @@ VIEWER_HTML = r"""<!DOCTYPE html>
   <div id="auto-scroll-bar">
     <label><input type="checkbox" id="auto-scroll" checked> Auto-follow latest</label>
     <label><input type="checkbox" id="tts-enabled"> TTS</label>
+    <label>Vol <input type="range" id="tts-volume" min="0" max="100" value="50" style="width:80px;vertical-align:middle"></label>
     <span id="last-update"></span>
   </div>
 </div>
@@ -224,6 +225,7 @@ async function playNext() {
     const blob = await resp.blob();
     const url = URL.createObjectURL(blob);
     const audio = new Audio(url);
+    audio.volume = document.getElementById("tts-volume").value / 100;
     audio.onended = () => { URL.revokeObjectURL(url); ttsPlaying = false; if (pendingTtsText) setTimeout(playNext, 500); };
     audio.onerror = () => { URL.revokeObjectURL(url); ttsPlaying = false; playNext(); };
     audio.play();

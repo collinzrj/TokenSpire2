@@ -6,5 +6,6 @@
   "Thinking": true,
   "ThinkingBudget": 2048,
   "Seed": "",
-  "Character": "IRONCLAD"
+  "Character": "IRONCLAD",
+  "hp_multiplier": 1.0
 }

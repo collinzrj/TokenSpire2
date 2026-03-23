@@ -15,6 +15,8 @@ public class LlmConfig
     public int ThinkingBudget { get; set; } = 2048;
     public string Seed { get; set; } = "";
     public string Character { get; set; } = "IRONCLAD";
+    [JsonPropertyName("hp_multiplier")]
+    public float HpMultiplier { get; set; } = 1.0f;
 
     public static LlmConfig? Load()
     {
