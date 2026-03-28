@@ -24,6 +24,7 @@ public class LlmClient
     private string _memory = "";
 
     public string LogPath => _logPath;
+    public string HistoryPath => _historyPath;
     public string Model => _model;
     public string Memory => _memory;
 
@@ -125,34 +126,30 @@ public class LlmClient
                 content = msg.content,
                 thinking = msg.thinking,
                 context = msg.context,
-                timestamp = msg.timestamp
+                timestamp = msg.timestamp,
+                finished = msg.finished ? (bool?)true : null
             });
         }
         return new { messages = msgs };
     }
 
-    /// <summary>Append new lessons to memory. Truncates new text to ~4096 tokens (~16K chars).</summary>
-    public void SaveMemory(string newText)
+    /// <summary>Replace memory with full rewritten content from LLM.</summary>
+    public void SaveMemory(string fullMemory)
     {
-        // Truncate new update to ~4096 tokens (rough estimate: 1 token ≈ 4 chars)
         const int maxChars = 16000;
-        if (newText.Length > maxChars)
+        if (fullMemory.Length > maxChars)
         {
-            newText = newText.Substring(0, maxChars) + "\n[...truncated]";
-            MainFile.Logger.Info($"[AutoSlay/LLM] Memory update truncated to {maxChars} chars");
+            fullMemory = fullMemory.Substring(0, maxChars) + "\n[...truncated]";
+            MainFile.Logger.Info($"[AutoSlay/LLM] Memory truncated to {maxChars} chars");
         }
 
-        // Append to existing memory
-        var separator = $"\n\n--- Run {DateTime.Now:yyyy-MM-dd HH:mm} ---\n";
-        _memory = string.IsNullOrEmpty(_memory)
-            ? newText
-            : _memory + separator + newText;
+        _memory = fullMemory;
 
         try
         {
             File.WriteAllText(_memoryPath, $"# LLM Memory\nUpdated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n\n{_memory}\n");
-            LogToFile($"[MEMORY APPENDED]\n{newText}");
-            MainFile.Logger.Info("[AutoSlay/LLM] Memory appended to file");
+            LogToFile($"[MEMORY REPLACED]\n{fullMemory}");
+            MainFile.Logger.Info("[AutoSlay/LLM] Memory replaced");
         }
         catch (Exception ex)
         {
@@ -267,7 +264,8 @@ public class LlmClient
         {
             content = result,
             thinking = string.IsNullOrEmpty(thinking) ? null : thinking,
-            timestamp = DateTime.Now.ToString("o")
+            timestamp = DateTime.Now.ToString("o"),
+            finished = true
         };
         SaveLive();
 
@@ -337,5 +335,5 @@ public class LlmClient
         catch { /* ignore file write errors */ }
     }
 
-    public record Message(string role, string content, string? thinking = null, string? context = null, string? timestamp = null);
+    public record Message(string role, string content, string? thinking = null, string? context = null, string? timestamp = null, bool finished = false);
 }

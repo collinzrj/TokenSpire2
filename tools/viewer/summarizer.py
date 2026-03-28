@@ -1,12 +1,13 @@
-"""LLM-based thinking summarizer."""
+"""LLM-based two-phase summarizer for game narration."""
 
 import json
 import urllib.request
 
+SCENE_SUFFIX = "\n\n---\n你是一个游戏AI主播，正在直播中思考下一步操作。用幽默吐槽的口吻分析当前局面，不要给出最终决策，保持悬念感。限50字，必须用中文。"
+DECISION_SUFFIX = "\n\n---\n你是一个游戏AI主播。你刚才分析了局面，现在你已经进行思考并做出了决策。用幽默吐槽的口吻宣布你的操作并解释理由。限50字，必须用中文。"
+
 
 class LLMSummarizer:
-    SYSTEM_PROMPT = "你是一个正在直播玩游戏的AI主播，用幽默吐槽的口吻总结自己的思考过程。只总结新增内容，不要重复。每次限20token。直接输出，不加前缀"
-
     def __init__(self, api_url: str, api_key: str, model: str):
         url = api_url.rstrip("/")
         if not url.endswith("/chat/completions"):
@@ -16,13 +17,21 @@ class LLMSummarizer:
         self.model = model
 
     def call(self, user_content: str) -> str | None:
+        return self.call_with_history([], user_content)
+
+    def call_with_history(self, history: list, user_content: str, phase: str = "scene") -> str | None:
+        """
+        Phase 1 (scene): messages = [user(query + SCENE_SUFFIX)]
+        Phase 2 (summary): messages = [user(query + SCENE_SUFFIX), assistant(scene), user(cot+decision + DECISION_SUFFIX)]
+        """
+        suffix = DECISION_SUFFIX if phase == "summary" else SCENE_SUFFIX
+        messages = list(history)
+        messages.append({"role": "user", "content": user_content + suffix})
+
         request_body = {
             "model": self.model,
-            "messages": [
-                {"role": "system", "content": self.SYSTEM_PROMPT},
-                {"role": "user", "content": user_content},
-            ],
-            "max_tokens": 30,
+            "messages": messages,
+            "max_tokens": 50,
             "stream": True,
             "enable_thinking": False,
         }
@@ -56,6 +65,7 @@ class LLMSummarizer:
             else:
                 data = json.loads(raw)
                 result = data["choices"][0]["message"]["content"]
+            print(f"[Summarizer] request: {json.dumps(json.loads(body), ensure_ascii=False)}")
             print(f"[Summarizer] -> {result}")
             return result
         except Exception as e:

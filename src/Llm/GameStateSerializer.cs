@@ -48,7 +48,10 @@ public static class GameStateSerializer
 
         sb.AppendLine(P("CombatHeader"));
         var stars = pcs?.Stars ?? 0;
-        if (stars > 0)
+        // Show stars if the character uses the star mechanic (has any card with star cost)
+        var allCards = player.Deck?.Cards?.ToList();
+        bool useStars = allCards?.Any(c => c.CanonicalStarCost >= 0) ?? false;
+        if (useStars)
             sb.AppendLine(P("HpBlockEnergy", creature.CurrentHp, creature.MaxHp, creature.Block, pcs?.Energy ?? 0, player.MaxEnergy) + $" | {P("Stars")}: {stars}");
         else
             sb.AppendLine(P("HpBlockEnergy", creature.CurrentHp, creature.MaxHp, creature.Block, pcs?.Energy ?? 0, player.MaxEnergy));
@@ -142,7 +145,8 @@ public static class GameStateSerializer
                 for (int i = 0; i < orbs.Count; i++)
                 {
                     var orb = orbs[i];
-                    var orbDesc = StripBBCode(orb.Description?.GetFormattedText() ?? "");
+                    var orbDesc = StripBBCode(orb.DumbHoverTip.Description
+                        ?? orb.Description?.GetFormattedText() ?? "");
                     sb.AppendLine($"  [{i + 1}] {orb.Title.GetFormattedText()} — {orbDesc}");
                 }
             }
@@ -188,9 +192,8 @@ public static class GameStateSerializer
             if (card != null)
             {
                 var desc = SafeGetDescription(card);
-                var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
-                var up = card.IsUpgraded ? "+" : "";
-                sb.AppendLine($"  [{i + 1}] {CardName(card)} ({card.Type}, {cost} {P("Energy")}, {card.Rarity}) — {desc}");
+                var costStr = FormatCardCost(card);
+                sb.AppendLine($"  [{i + 1}] {CardName(card)} ({card.Type}, {costStr}, {card.Rarity}) — {desc}");
             }
             else
                 sb.AppendLine($"  [{i + 1}] {P("UnknownCard")}");
@@ -231,7 +234,7 @@ public static class GameStateSerializer
                     desc = P("CardRewardDesc");
                     break;
                 case PotionReward potion when potion.Potion != null:
-                    var potionDesc = StripBBCode(potion.Potion.Description?.GetFormattedText() ?? "");
+                    var potionDesc = StripBBCode(potion.Potion.DynamicDescription?.GetFormattedText() ?? potion.Potion.Description?.GetFormattedText() ?? "");
                     desc = $"{P("PotionReward", potion.Potion.Id.Entry)} — {potionDesc}";
                     break;
                 default:
@@ -251,8 +254,8 @@ public static class GameStateSerializer
             foreach (var card in cardReward.Cards)
             {
                 var cardDesc = SafeGetDescription(card);
-                var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
-                sb.AppendLine($"  Card {cardIdx}: {CardName(card)} ({card.Type}, {cost} {P("Energy")}, {card.Rarity}) — {cardDesc}");
+                var costStr = FormatCardCost(card);
+                sb.AppendLine($"  Card {cardIdx}: {CardName(card)} ({card.Type}, {costStr}, {card.Rarity}) — {cardDesc}");
                 cardIdx++;
             }
         }
@@ -451,7 +454,7 @@ public static class GameStateSerializer
             if (!entry.IsStocked) continue;
             var relic = entry.Model;
             if (relic == null) continue;
-            var desc = StripBBCode(relic.Description?.GetFormattedText() ?? "");
+            var desc = StripBBCode(relic.DynamicDescription?.GetFormattedText() ?? relic.Description?.GetFormattedText() ?? "");
             var affordable = entry.EnoughGold ? "" : P("NotEnoughGold");
             sb.AppendLine($"  [{idx}] {relic.Id.Entry} ({relic.Rarity}) — {desc} | {P("Cost", entry.Cost)}{affordable}");
             idx++;
@@ -465,7 +468,7 @@ public static class GameStateSerializer
             if (!entry.IsStocked) continue;
             var potion = entry.Model;
             if (potion == null) continue;
-            var desc = StripBBCode(potion.Description?.GetFormattedText() ?? "");
+            var desc = StripBBCode(potion.DynamicDescription?.GetFormattedText() ?? potion.Description?.GetFormattedText() ?? "");
             var affordable = entry.EnoughGold ? "" : P("NotEnoughGold");
             sb.AppendLine($"  [{idx}] {potion.Id.Entry} ({potion.Rarity}) — {desc} | {P("Cost", entry.Cost)}{affordable}");
             idx++;
@@ -525,9 +528,8 @@ public static class GameStateSerializer
             if (card != null)
             {
                 var desc = SafeGetDescription(card);
-                var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
-                var up = card.IsUpgraded ? "+" : "";
-                sb.AppendLine($"  [{i + 1}] {CardName(card)} ({card.Type}, {cost} {P("Energy")}) — {desc}");
+                var costStr = FormatCardCost(card);
+                sb.AppendLine($"  [{i + 1}] {CardName(card)} ({card.Type}, {costStr}) — {desc}");
             }
             else
                 sb.AppendLine($"  [{i + 1}] {P("UnknownCard")}");
@@ -548,6 +550,17 @@ public static class GameStateSerializer
     }
 
     public static string SafeGetCardDescription(CardModel card) => SafeGetDescription(card);
+
+    private static string FormatCardCost(CardModel card)
+    {
+        var cost = card.EnergyCost.CostsX ? "X" : card.EnergyCost.Canonical.ToString();
+        var starCost = card.CanonicalStarCost;
+        if (starCost > 0)
+            return $"{cost} {P("Energy")} + {starCost} {P("Stars")}";
+        if (starCost == 0)
+            return $"{starCost} {P("Stars")}";
+        return $"{cost} {P("Energy")}";
+    }
 
     private static string CardName(CardModel card)
     {
@@ -580,12 +593,22 @@ public static class GameStateSerializer
     private static string StripBBCode(string text)
     {
         if (string.IsNullOrEmpty(text)) return text;
+        // Debug: log any [img] tags we're about to process
+        if (text.Contains("[img]"))
+            MainFile.Logger.Info($"[AutoSlay/BBCode] Raw: {text}");
         // Replace energy icon images with text: consecutive icons → count + "energy"
         text = System.Text.RegularExpressions.Regex.Replace(text,
             @"(\[img\]res://images/packed/sprite_fonts/\w+_energy_icon\.png\[/img\])+",
             m => {
                 int count = System.Text.RegularExpressions.Regex.Matches(m.Value, @"\[img\]").Count;
                 return $"{count}{P("Energy")}";
+            });
+        // Replace star icon images with text: consecutive icons → count + "stars"
+        text = System.Text.RegularExpressions.Regex.Replace(text,
+            @"(\[img\]res://images/packed/sprite_fonts/star_icon\.png\[/img\])+",
+            m => {
+                int count = System.Text.RegularExpressions.Regex.Matches(m.Value, @"\[img\]").Count;
+                return $"{count}{P("Stars")}";
             });
         // Remove remaining [img]...[/img] entirely
         text = System.Text.RegularExpressions.Regex.Replace(text, @"\[img\].*?\[/img\]", "");

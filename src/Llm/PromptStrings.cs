@@ -137,22 +137,22 @@ Output ONLY action commands. Do not add any reasoning or explanation.",
 @"=== GAME OVER ===
 This run has ended. Here are the stats:
 {0}
-Your accumulated memory from previous runs:
+Your current memory file:
 ---
 {1}
 ---
 
-Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the memory above. Summarize the run stats in one line, then list new insights. Your output will be APPENDED to the existing memory. It should be longer than 1000 tokens but less than 4000 tokens.",
+Rewrite the FULL memory file incorporating lessons from this run. Your output REPLACES the entire memory. Keep useful old lessons, remove outdated ones, add new insights from this run. Summarize each run in one line, then list consolidated strategy insights. Target 1000-4000 tokens.",
 
 @"=== 游戏结束 ===
 本局游戏已结束。以下是本局统计：
 {0}
-你之前积累的记忆：
+你当前的记忆文件：
 ---
 {1}
 ---
 
-只写本局的新教训。不要重复已有记忆中的内容。先用一行总结本局数据，然后列出新发现。你的输出会被追加到已有记忆后面。不少于1000 token 但是必须少于4000 token."
+重写完整的记忆文件，融入本局的教训。你的输出将完整替换现有记忆。保留有用的旧教训，删除过时的内容，加入本局新发现。先用一行总结每局数据，然后列出整合后的策略心得。目标1000-4000 token。"
         ),
 
         // ========== Combat ==========
@@ -238,8 +238,22 @@ Write ONLY the NEW lessons from THIS run. Do NOT repeat anything already in the 
             "能力: {0}"
         ),
         ["CombatInstruction"] = (
-            "Which cards/potions do you play this turn? Use PLAY <index> [-> <enemy_letter>] or POTION <P_index> [-> <enemy_letter>], then END_TURN.",
-            "这回合打哪些牌/用哪些药水？使用 PLAY <序号> [-> <敌人字母>] 或 POTION <P序号> [-> <敌人字母>]，然后 END_TURN。"
+@"Which cards/potions do you play this turn?
+Format: PLAY <index> [-> <enemy_letter>] or POTION <P_index> [-> <enemy_letter>], then END_TURN.
+Example:
+  POTION P1
+  PLAY 3 -> A
+  PLAY 1
+  END_TURN
+If a card has draw effects or similar, you may skip END_TURN — the system will show your updated hand and let you continue.",
+@"这回合打哪些牌/用哪些药水？
+格式：PLAY <序号> [-> <敌人字母>] 或 POTION <P序号> [-> <敌人字母>]，最后 END_TURN。
+示例：
+  POTION P1
+  PLAY 3 -> A
+  PLAY 1
+  END_TURN
+如果打出的牌有抽牌等效果，可以不写END_TURN —— 系统会显示更新后的手牌让你继续操作。"
         ),
 
         // ========== Card Reward ==========

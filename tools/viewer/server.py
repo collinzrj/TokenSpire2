@@ -38,17 +38,47 @@ class ViewerHandler(SimpleHTTPRequestHandler):
                 self._respond(400, "text/plain", b"No text or TTS not configured")
                 return
             print(f"[TTS] {text[:50]}...")
-            wav = self.tts.synthesize(text)
-            if wav:
-                self._respond(200, "audio/wav", wav, no_cache=True)
+            if hasattr(self.tts, 'synthesize_stream'):
+                # Stream PCM chunks
+                self.send_response(200)
+                self.send_header("Content-Type", "audio/pcm")
+                self.send_header("Cache-Control", "no-cache")
+                self.send_header("X-Sample-Rate", "24000")
+                self.end_headers()
+                try:
+                    for chunk in self.tts.synthesize_stream(text):
+                        self.wfile.write(chunk)
+                        self.wfile.flush()
+                except Exception as e:
+                    print(f"[TTS] Stream error: {e}")
             else:
-                self._respond(500, "text/plain", b"TTS failed")
+                wav = self.tts.synthesize(text)
+                if wav:
+                    self._respond(200, "audio/wav", wav, no_cache=True)
+                else:
+                    self._respond(500, "text/plain", b"TTS failed")
         else:
             self.send_error(404)
 
     def do_POST(self):
         p = urlparse(self.path).path
-        if p == "/api/comment":
+        if p == "/api/proceed":
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length).decode("utf-8") if length else ""
+            try:
+                data = json.loads(body) if body else {}
+                ri = data.get("run", -1)
+                mi = data.get("msg", -1)
+                if ri >= 0 and mi >= 0 and self.state:
+                    self.state.set_proceed(ri, mi)
+            except Exception as e:
+                print(f"[Proceed] Error: {e}")
+            self.send_response(200)
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(b"ok")
+            return
+        elif p == "/api/comment":
             length = int(self.headers.get("Content-Length", 0))
             body = self.rfile.read(length).decode("utf-8") if length else ""
             try:
@@ -93,9 +123,9 @@ class ViewerHandler(SimpleHTTPRequestHandler):
 
 
 def background_loop(state, handler_cls):
-    """Polls file + summarizes every 3 seconds."""
+    """Polls file + summarizes every 0.1 seconds."""
     while True:
-        time.sleep(3)
+        time.sleep(0.1)
         try:
             path = handler_cls.json_path
             if handler_cls.watch_dir:
@@ -106,6 +136,6 @@ def background_loop(state, handler_cls):
                         print(f"Now watching: {latest}")
                     path = latest
             state.update_from_file(path)
-            state.summarize_pending()
+            state.process_pending()
         except Exception as e:
             print(f"[Background] Error: {e}")

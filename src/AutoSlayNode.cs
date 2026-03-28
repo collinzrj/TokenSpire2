@@ -58,6 +58,7 @@ public partial class AutoSlayNode : Node
     private LlmClient? _llm;
     private Task<string>? _pendingLlm;
     private string? _pendingContext; // "combat", "map", "overlay:TypeName", "event", "restsite"
+    private double _proceedTimer = -1; // timeout for audio proceed after LLM completes (-1 = not started)
     private List<CombatAction>? _combatPlan;
     private int _combatPlanStep;
     private bool _combatTurnRequested; // prevent re-requesting same turn
@@ -147,34 +148,56 @@ public partial class AutoSlayNode : Node
             }
         }
 
-        // ── Check pending LLM call ───────────────────────────────────────────
+        // ── Check pending LLM call + wait for viewer proceed ─────────────────
         if (_pendingLlm != null)
         {
-            if (!_pendingLlm.IsCompleted) return; // still waiting
+            if (!_pendingLlm.IsCompleted) return; // LLM still running
 
-            try
+            if (_pendingLlm.IsFaulted)
             {
-                if (_pendingLlm.IsFaulted)
+                MainFile.Logger.Info($"[AutoSlay/LLM] Request failed: {_pendingLlm.Exception?.InnerException?.Message}");
+                _pendingLlm = null;
+                _pendingContext = null;
+                _proceedTimer = -1;
+                _combatTurnRequested = false; // allow retry
+                _cooldown = 2.0;
+                return;
+            }
+
+            // LLM done — start proceed timer on first detection of completion
+            if (_proceedTimer < 0)
+            {
+                _proceedTimer = 30.0;
+                MainFile.Logger.Info("[AutoSlay/LLM] Response ready, waiting for viewer audio...");
+            }
+
+            // Wait for viewer audio proceed signal before executing
+            _proceedTimer -= delta;
+            if (CheckEnrichedProceed() || _proceedTimer <= 0)
+            {
+                if (_proceedTimer <= 0)
+                    MainFile.Logger.Info("[AutoSlay] Audio wait timeout, proceeding anyway");
+                try
                 {
-                    MainFile.Logger.Info($"[AutoSlay/LLM] Request failed: {_pendingLlm.Exception?.InnerException?.Message}");
+                    var response = _pendingLlm.Result;
+                    var ctx = _pendingContext!;
                     _pendingLlm = null;
                     _pendingContext = null;
-                    _combatTurnRequested = false; // allow retry
-                    _cooldown = 2.0;
-                    return;
+                    _proceedTimer = -1;
+                    ExecuteLlmResult(ctx, response);
                 }
-
-                var response = _pendingLlm.Result;
-                _pendingLlm = null;
-                ExecuteLlmResult(_pendingContext!, response);
-                _pendingContext = null;
+                catch (Exception ex)
+                {
+                    MainFile.Logger.Info($"[AutoSlay/LLM] Error handling response: {ex.Message}");
+                    _pendingLlm = null;
+                    _pendingContext = null;
+                    _proceedTimer = -1;
+                    _cooldown = 1.0;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MainFile.Logger.Info($"[AutoSlay/LLM] Error handling response: {ex.Message}");
-                _pendingLlm = null;
-                _pendingContext = null;
-                _cooldown = 1.0;
+                _cooldown = 0.5;
             }
             return;
         }
@@ -483,6 +506,50 @@ public partial class AutoSlayNode : Node
             MainFile.Logger.Info($"[AutoSlay] Idle: overlays={overlayCount} map={mapOpen} combat={cmInProgress}");
             _logTimer = 5.0;
         }
+    }
+
+    private bool CheckEnrichedProceed()
+    {
+        try
+        {
+            if (_llm == null) return true;
+            // Derive enriched file path from history path
+            var historyPath = _llm.HistoryPath;
+            if (string.IsNullOrEmpty(historyPath)) return true;
+            var enrichedPath = historyPath.Replace("llm_history_", "llm_enriched_");
+            if (!System.IO.File.Exists(enrichedPath)) return false;
+
+            var json = System.IO.File.ReadAllText(enrichedPath);
+            using var doc = System.Text.Json.JsonDocument.Parse(json);
+            var runs = doc.RootElement;
+            if (runs.GetArrayLength() == 0) return false;
+
+            // Check last assistant message in last run
+            var lastRun = runs[runs.GetArrayLength() - 1];
+            var msgs = lastRun.GetProperty("messages");
+
+            // Enriched file must have at least as many messages as the history —
+            // otherwise the viewer hasn't caught up yet and we'd read stale should_proceed
+            var expectedCount = _llm?.MessageCount ?? 0;
+            if (expectedCount > 0 && msgs.GetArrayLength() < expectedCount)
+                return false;
+
+            for (int i = msgs.GetArrayLength() - 1; i >= 0; i--)
+            {
+                var msg = msgs[i];
+                if (msg.GetProperty("role").GetString() == "assistant")
+                {
+                    if (msg.TryGetProperty("should_proceed", out var sp) && sp.GetBoolean())
+                    {
+                        MainFile.Logger.Info("[AutoSlay] Viewer audio proceed signal received");
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+        catch { return true; } // proceed on error to avoid permanent stall
     }
 
     private double HandleMainMenu(Control mainMenu)
@@ -879,8 +946,11 @@ public partial class AutoSlayNode : Node
                 MainFile.Logger.Info($"[AutoSlay/LLM] Skipping {action.Card.Id.Entry} (no longer playable)");
                 return;
             }
-            MainFile.Logger.Info($"[AutoSlay/LLM] Playing {action.Card.Id.Entry}{(action.Target != null ? $" -> {action.Target.Monster?.Id.Entry}" : "")}");
-            action.Card.TryManualPlay(action.Target);
+            // For non-targeted cards (AOE, self-buff), don't pass a target
+            var cardTarget = action.Card.TargetType == TargetType.AnyEnemy ? action.Target : null;
+            MainFile.Logger.Info($"[AutoSlay/LLM] Playing {action.Card.Id.Entry} (type={action.Card.TargetType}){(cardTarget != null ? $" -> {cardTarget.Monster?.Id.Entry}" : "")}");
+            if (!action.Card.TryManualPlay(cardTarget))
+                MainFile.Logger.Info($"[AutoSlay/LLM] TryManualPlay FAILED for {action.Card.Id.Entry}");
             _combatCardDelay = 0.4;
         }
     }

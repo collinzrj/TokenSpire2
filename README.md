@@ -80,7 +80,7 @@
 1. 从 [Releases](https://github.com/collinzrj/TokenSpire2/releases) 下载最新的 `TokenSpire2-vX.X.X.zip`
 2. 将 zip 解压到 Mod 文件夹：
    - **Windows:** `<Steam>/steamapps/common/Slay the Spire 2/mods/`
-   - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
+   - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/MacOS/mods/`
 3. 确保 `mods/` 下有一个 `TokenSpire2/` 文件夹
 4. 编辑 `TokenSpire2/` 文件夹中的 `llm_config.json` — 填入你的 API 密钥
 
@@ -103,7 +103,7 @@ dotnet build
 
 **macOS:**
 ```
-~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/TokenSpire2/
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/MacOS/mods/TokenSpire2/
 ```
 
 macOS 上游戏数据目录（用于 DLL 引用）：

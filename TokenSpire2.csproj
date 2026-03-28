@@ -25,7 +25,7 @@
   <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
     <SteamAppsPath>$(HOME)/Library/Application Support/Steam/steamapps</SteamAppsPath>
     <GameDataPath>$(SteamAppsPath)/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64</GameDataPath>
-    <ModsPath>$(SteamAppsPath)/common/Slay the Spire 2/mods</ModsPath>
+    <ModsPath>$(SteamAppsPath)/common/Slay the Spire 2/SlayTheSpire2.app/Contents/MacOS/mods</ModsPath>
   </PropertyGroup>
 
   <!-- Reference the game's own DLLs directly — not copied to output -->

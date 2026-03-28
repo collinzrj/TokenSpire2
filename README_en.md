@@ -78,7 +78,7 @@ Model: `anthropic/claude-opus-4.6` via OpenRouter with extended thinking enabled
 1. Download the latest `TokenSpire2-vX.X.X.zip` from [Releases](https://github.com/collinzrj/TokenSpire2/releases)
 2. Extract the zip into your mods folder:
    - **Windows:** `<Steam>/steamapps/common/Slay the Spire 2/mods/`
-   - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/`
+   - **macOS:** `~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/MacOS/mods/`
 3. You should end up with a `TokenSpire2/` folder inside `mods/`
 4. Edit `llm_config.json` inside the `TokenSpire2/` folder — fill in your API key
 5. In Steam, right-click Slay the Spire 2 → Properties → Launch Options, add `--autoslay`
@@ -101,7 +101,7 @@ The build automatically copies `TokenSpire2.dll` to your mods folder:
 
 **macOS:**
 ```
-~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/mods/TokenSpire2/
+~/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/MacOS/mods/TokenSpire2/
 ```
 
 Game data directory on macOS (used for DLL references):

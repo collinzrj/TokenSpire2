@@ -79,7 +79,7 @@ VIEWER_HTML = r"""<!DOCTYPE html>
   </div>
 </div>
 <script>
-const POLL_INTERVAL = 1000;
+const POLL_INTERVAL = 100;
 let data = [];
 let selectedRun = -1;
 let selectedMsg = -1;
@@ -135,15 +135,17 @@ function renderContent() {
 
   let html = `<div class="message-block user"><h3>Game State</h3><pre>${esc(u.content)}</pre></div>`;
   if (a) {
-    const summaries = a.summary || [];
-    if (summaries.length > 0) {
-      html += `<div class="summary-block"><h3>Thinking Summary</h3>`;
-      summaries.forEach((s, i) => {
-        html += `<div class="summary-item"><span class="summary-idx">${i+1}.</span>${esc(s)}</div>`;
-      });
-      html += `</div>`;
-    } else if (a.cot) {
-      html += `<div class="summary-block"><h3>Thinking Summary</h3><div class="summary-item" style="color:#666">⏳ Summarizing...</div></div>`;
+    // Scene description (phase 1)
+    if (a.scene) {
+      html += `<div class="summary-block"><h3>Scene</h3><div class="summary-item">${esc(a.scene)}</div></div>`;
+    } else if (!a.content) {
+      html += `<div class="summary-block"><h3>Scene</h3><div class="summary-item" style="color:#666">⏳ Describing...</div></div>`;
+    }
+    // Decision summary (phase 2)
+    if (a.summary) {
+      html += `<div class="summary-block"><h3>Decision Summary</h3><div class="summary-item">${esc(a.summary)}</div></div>`;
+    } else if (a.content) {
+      html += `<div class="summary-block"><h3>Decision Summary</h3><div class="summary-item" style="color:#666">⏳ Summarizing...</div></div>`;
     }
     const txt = a.content || (a.cot ? "⏳ Thinking..." : "⏳ Waiting...");
     html += `<div class="message-block assistant"><h3>LLM Response</h3><pre${!a.content?' style="color:#666"':''}>${esc(txt)}</pre></div>`;
@@ -183,60 +185,170 @@ async function poll() {
     document.getElementById("status").textContent = "Error: " + e.message;
   }
 }
-// ─── TTS ───
-let lastSeenKey = "";
+// ─── TTS (two-phase: scene then summary) ───
+let lastSceneKey = "";
+let lastSummaryKey = "";
 let ttsInitialized = false;
 let ttsPlaying = false;
 let pendingTtsText = null;
+let prefetchedBlob = null;
+let prefetchingKey = null;
 
-function getLatestSummaryKey() {
+function prefetchAudio(text, key) {
+  // No prefetch for WebSocket — playback is streamed live
+  prefetchingKey = key;
+  prefetchedBlob = null;
+}
+
+function getLatestAudio() {
   if (data.length === 0) return null;
   for (let ri = data.length - 1; ri >= 0; ri--) {
     const msgs = data[ri].messages || [];
     for (let mi = msgs.length - 1; mi >= 0; mi--) {
       const m = msgs[mi];
-      if (m.role === "assistant" && m.summary && m.summary.length > 0) {
-        return { key: `${ri}:${mi}:${m.summary.length}`, text: m.summary[m.summary.length - 1] };
+      if (m.role !== "assistant") continue;
+      const sumKey = `sum:${ri}:${mi}`;
+      if (m.summary && sumKey !== lastSummaryKey) {
+        return { key: sumKey, text: m.summary, type: "summary", ri, mi };
       }
+      const scnKey = `scn:${ri}:${mi}`;
+      if (m.scene && scnKey !== lastSceneKey) {
+        return { key: scnKey, text: m.scene, type: "scene", ri, mi, scene_t: m.scene_t };
+      }
+      return null;
     }
   }
   return null;
 }
 
-function checkNewSummaries() {
-  if (!document.getElementById("tts-enabled").checked) return;
-  const info = getLatestSummaryKey();
+let pendingTtsType = null;
+
+let pendingRi = -1, pendingMi = -1;
+let pendingSceneT = null;
+
+function checkNewAudio() {
+  if (!document.getElementById("tts-enabled").checked) {
+    const info = getLatestAudio();
+    if (info) {
+      if (info.type === "scene") lastSceneKey = info.key;
+      if (info.type === "summary") { lastSummaryKey = info.key; sendProceed(info.ri, info.mi); }
+    }
+    return;
+  }
+  const info = getLatestAudio();
   if (!info) return;
-  if (!ttsInitialized) { lastSeenKey = info.key; ttsInitialized = true; return; }
-  if (info.key === lastSeenKey) return;
-  lastSeenKey = info.key;
+  if (!ttsInitialized) {
+    if (info.type === "scene") lastSceneKey = info.key;
+    if (info.type === "summary") { lastSummaryKey = info.key; sendProceed(info.ri, info.mi); }
+    ttsInitialized = true;
+    return;
+  }
+  if (info.type === "scene") lastSceneKey = info.key;
+  if (info.type === "summary") lastSummaryKey = info.key;
+  // Prefetch audio immediately (even while current audio plays)
+  prefetchAudio(info.text, info.key);
   pendingTtsText = info.text;
+  pendingTtsType = info.type;
+  pendingSceneT = info.scene_t || null;
+  pendingRi = info.ri;
+  pendingMi = info.mi;
   if (!ttsPlaying) playNext();
+}
+
+let lastProceedKey = "";
+
+function sendProceed(ri, mi) {
+  const key = `${ri}:${mi}`;
+  if (key === lastProceedKey) return; // avoid duplicate
+  lastProceedKey = key;
+  fetch("/api/proceed", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({run: ri, msg: mi})
+  }).catch(e => console.error("Proceed error:", e));
+}
+
+let sharedAudioCtx = null;
+function getAudioCtx() {
+  if (!sharedAudioCtx || sharedAudioCtx.state === "closed") {
+    sharedAudioCtx = new AudioContext({ sampleRate: 24000 });
+  }
+  if (sharedAudioCtx.state === "suspended") sharedAudioCtx.resume();
+  return sharedAudioCtx;
 }
 
 async function playNext() {
   if (!pendingTtsText || ttsPlaying) return;
   const text = pendingTtsText;
+  const type = pendingTtsType;
+  const ri = pendingRi;
+  const mi = pendingMi;
+  const scene_t = pendingSceneT;
   pendingTtsText = null;
+  pendingTtsType = null;
+  pendingSceneT = null;
   ttsPlaying = true;
   try {
-    const resp = await fetch("/api/tts?text=" + encodeURIComponent(text));
-    if (!resp.ok) { ttsPlaying = false; return; }
-    const blob = await resp.blob();
-    const url = URL.createObjectURL(blob);
-    const audio = new Audio(url);
-    audio.volume = document.getElementById("tts-volume").value / 100;
-    audio.onended = () => { URL.revokeObjectURL(url); ttsPlaying = false; if (pendingTtsText) setTimeout(playNext, 500); };
-    audio.onerror = () => { URL.revokeObjectURL(url); ttsPlaying = false; playNext(); };
-    audio.play();
+    const ctx = getAudioCtx();
+    const vol = ctx.createGain();
+    vol.gain.value = document.getElementById("tts-volume").value / 100;
+    vol.connect(ctx.destination);
+    let nextTime = ctx.currentTime + 0.1;
+
+    await new Promise((resolve, reject) => {
+      const ws = new WebSocket("ws://localhost:5556");
+      ws.binaryType = "arraybuffer";
+
+      ws.onopen = () => {
+        ws.send(JSON.stringify({ text, scene_t }));
+      };
+
+      ws.onmessage = (e) => {
+        const buf = e.data;
+        if (buf.byteLength === 0) { ws.close(); return; } // end signal
+        const samples = buf.byteLength / 2;
+        const view = new DataView(buf);
+        const floats = new Float32Array(samples);
+        for (let i = 0; i < samples; i++) floats[i] = view.getInt16(i * 2, true) / 32768.0;
+        const audioBuf = ctx.createBuffer(1, samples, 24000);
+        audioBuf.getChannelData(0).set(floats);
+        const src = ctx.createBufferSource();
+        src.buffer = audioBuf;
+        src.connect(vol);
+        if (nextTime < ctx.currentTime) nextTime = ctx.currentTime;
+        src.start(nextTime);
+        nextTime += audioBuf.duration;
+      };
+
+      ws.onclose = () => {
+        // Wait for all scheduled audio to finish, then disconnect gain node
+        const remaining = Math.max(0, nextTime - ctx.currentTime);
+        setTimeout(() => {
+          vol.disconnect();
+          resolve();
+        }, remaining * 1000 + 100);
+      };
+
+      ws.onerror = (e) => {
+        console.error("WS-TTS error:", e);
+        vol.disconnect();
+        reject(e);
+      };
+    });
+    // Success — audio finished
+    ttsPlaying = false;
+    if (type === "summary") sendProceed(ri, mi);
+    if (pendingTtsText) setTimeout(playNext, 500);
   } catch (e) {
     console.error("TTS error:", e);
     ttsPlaying = false;
+    if (type === "summary") sendProceed(ri, mi);
+    if (pendingTtsText) setTimeout(playNext, 500);
   }
 }
 
 setInterval(poll, POLL_INTERVAL);
-setInterval(checkNewSummaries, POLL_INTERVAL);
+setInterval(checkNewAudio, POLL_INTERVAL);
 poll();
 </script>
 </body>

@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+import sys, io
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+else:
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 """
 Danmaku bridge: opens Xiaohongshu live dashboard, scrapes comments,
 writes them to instruction.txt.
